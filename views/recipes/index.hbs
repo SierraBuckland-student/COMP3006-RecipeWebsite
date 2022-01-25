@@ -1,3 +1,32 @@
 {{!-- Page where users would view recipes --}}
 
 <h1>{{title}}</h1>
+
+<table>
+    <thead>
+        <th>Author:</th>
+        <th>Title:</th>
+        <th>Total Time:</th>
+        <th>Image:</th>
+        <th>Cook Time:</th>
+        <th>Servings:</th>
+        <th>Ingredients:</th>
+        <th>Steps:</th>
+        <th>Rating:</th>
+        <th>Tags:</th>
+    </thead>
+    {{#each dataset}}
+    <tr>
+        <td>{{this.author}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.totalTime}}</td>
+        {{!-- <td>{{this.img}}</td> --}}
+        <td>{{this.cookTime}}</td>
+        <td>{{this.servings}}</td>
+        <td>{{this.ingredients}}</td>
+        <td>{{this.steps}}</td>
+        <td>{{this.rating}}</td>
+        <td>{{this.tags}}</td>
+    </tr>
+    {{/each}}
+</table>
