@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
       console.log(err);
     }
     else {
-      res.render('recipes/index', { title: 'Recipe Website'});
+      res.render('recipes/index', { title: 'Recipe Website', dataset: recipe});
       console.log(recipe);
     }
   }
