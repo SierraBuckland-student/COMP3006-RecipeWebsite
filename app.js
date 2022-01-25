@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+const config = require('./config/globals')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,10 +26,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/Recipe', recipeRouter);
 
-// Connection String
-const connectionString = 'mongodb+srv://admin:admin@cluster0.7gaid.mongodb.net/recipes'
+
 // Connecting to Database
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true })
 .then((message) => {
   console.log('Connected Successfully to Database')
 })
