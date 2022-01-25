@@ -4,8 +4,18 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('recipes/index', { title: 'Recipe Website'});
+  Recipe.find((err, recipe) => {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.render('recipes/index', { title: 'Recipe Website'});
+      console.log(recipe);
+    }
+  }
+);
 });
+
 
   //Export router 
 
