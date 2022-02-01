@@ -4,5 +4,16 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+th,
+td {
+  padding: 25px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
 }

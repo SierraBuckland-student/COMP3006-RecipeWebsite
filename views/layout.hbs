@@ -1,10 +1,34 @@
+{{!-- 
+Purpose: The layout of the head, header and footer of each page of the website.
+Changes: 
+LH Feb 1 - Edited the head tags to have a title and icon.
+           Added a header and footer to the website with navigation. 
+--}}
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>Recipe Website Name</title>
+    <link rel="icon" href="/public/images/LogoMakr-4rHfmM.png">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+  <header> 
+    <a href = "/">Home</a> |
+    <a href="/Recipe"> Recipes </a> |
+    <a href="/recipes/add">Add Recipes </a>
+  </header>
   <body>
     {{{body}}}
   </body>
+  <footer>
+    <nav>
+      <a href="/about">About Us</a> |
+      <a href="/contact">Contact Us</a> |
+      <a href="/tools">Tools</a> 
+    </nav>
+    <small>Lindsay Hunter, Myles Megaffin, Sierra Buckland, Taeler Burgess</small>
+    </br>
+    <small>Copyright: This is an educational assignment for COMP3006 at Georgian College. This website is intended for educational purposes only.</small>
+    </br>
+    <small>Created icon design at LogoMakr.com</small>
+  </footer>
 </html>
