@@ -2,7 +2,7 @@ var express = require('express');
 const Recipe = require('../models/recipe')
 var router = express.Router();
 
-/* GET home page. */
+/* GET recipe page. */
 router.get('/', function(req, res, next) {
   Recipe.find((err, recipe) => {
     if (err) {
@@ -16,9 +16,15 @@ router.get('/', function(req, res, next) {
 );
 });
 
+//get for adding a species page
+router.get('/add', (req, res, next) => {
+  res.render('recipes/add', {
+      title: 'Add a new recipe'
+  });
+});
 
-//POST handler for addign a recipe
-router.post('/', (req, res, next) => {
+//POST handler for adding a recipe
+router.post('/add', (req, res, next) => {
   //validate for required fields
   if (!req.body.author) {
       res.json({ 'Validation Error': 'Recipe author is a required field' }).status(400);
@@ -57,7 +63,8 @@ router.post('/', (req, res, next) => {
               }
               else {
                   //if it was able to be created return object
-                  res.json(newRecipe).status(200);
+                  //res.json(newRecipe).status(200);
+                  res.redirect('/recipes'); //redirect to recipes page if successful
               }
           }
       ); 

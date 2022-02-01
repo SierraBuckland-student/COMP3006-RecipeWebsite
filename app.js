@@ -8,7 +8,7 @@ const config = require('./config/globals')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var recipeRouter = require('./routes/Recipe');
+var recipeRouter = require('./routes/recipes');
 var toolsRouter = require('./routes/tools');
 var aboutRouter = require('./routes/about'); 
 var contactRouter = require('./routes/contact');
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/Recipe', recipeRouter);
+app.use('/recipes', recipeRouter);
 app.use('/tools', toolsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
