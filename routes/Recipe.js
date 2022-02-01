@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 
 
 //POST handler for addign a recipe
-router.post('/', (req, res, next) => {
+router.post('/add', (req, res, next) => {
   //validate for required fields
   if (!req.body.author) {
       res.json({ 'Validation Error': 'Recipe author is a required field' }).status(400);
