@@ -11,6 +11,7 @@
       name="author"
       id="author"
       required
+      value="{{recipe.author}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -21,6 +22,7 @@
       name="title"
       id="title"
       required
+      value="{{recipe.title}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -31,6 +33,7 @@
       name="totalTime"
       id="totalTime"
       required
+      value="{{recipe.totalTime}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -40,6 +43,7 @@
     <input
       name="img"
       id="img"
+      {{!-- value="{{recipe.img}}" --}}
     />
   </fieldset>
   <fieldset class="form-group">
@@ -50,6 +54,7 @@
       name="cookTime"
       id="cookTime"
       required
+      value="{{recipe.cookTime}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -60,6 +65,7 @@
       name="servings"
       id="servings"
       required
+      value="{{recipe.servings}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -70,6 +76,7 @@
       name="ingredients"
       id="ingredients"
       required
+      value="{{recipe.ingredients}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -80,6 +87,7 @@
       name="steps"
       id="steps"
       required
+      value="{{recipe.steps}}"
     />
   </fieldset>
   <fieldset class="form-group">
@@ -89,12 +97,13 @@
     <input
       name="tags"
       id="tags"
+      value="{{recipe.tags}}"
     />
   </fieldset>
     
   <fieldset class="form-group">
     <button class="btn btn-info offset-3">
-      Add Recipe
+      Save
     </button>
   </fieldset>
 </form>
