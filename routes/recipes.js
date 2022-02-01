@@ -70,23 +70,18 @@ router.post('/add', (req, res, next) => {
   }
 });
 
-//DELETE handler for recipe
-router.delete('/:_id', (req, res, next) => {
-  Recipe.remove(
-      { _id: req.params._id }, // filter for results with the specified id 
-      (err) => {
-          if (err) {
-              console.log(err);
-              res.json({ 'Error Message': 'Server threw exception' }).status(500);                
-          }
-          else {
-              res.json({ 'success': 'true' }).status(200);
-          }
+//DELETE handler for recipe   
+router.get('/delete/:_id', (req, res, next) => {
+  Recipe.remove({_id: req.params._id }, (err) => {
+      if(err) {
+          console.log(err);
       }
-  );
+      else {
+          res.redirect('/recipes')
+      }
+  });
 });
 
 
 //Export router 
-
 module.exports = router;
