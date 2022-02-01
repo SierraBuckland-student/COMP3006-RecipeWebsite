@@ -70,6 +70,7 @@ router.post('/add', (req, res, next) => {
   }
 });
 
+<<<<<<< HEAD
 //get handler for animal edit   
 router.get('/edit/:_id', (req, res, next) => {
   Recipe.findById(req.params._id, (err, recipe) => {
@@ -103,6 +104,44 @@ router.post('/edit/:_id', (req, res, next) => {
           console.log(err);
       }
       else {
+=======
+/* EDIT */
+/* GET handler for EDIT */
+router.get('/edit/:_id', (req, res, next) => {
+  Recipe.findById(req.params._id, (err, recipe) => {
+    if (err) {
+      console.log(err);
+    }
+    else {
+        res.render('recipes/edit', {
+          title: 'Update Recipe',
+          recipe: recipe
+        });
+      }
+  });
+});
+
+/* POST handler for EDIT */
+router.post('/edit/:_id', (req, res, next) => {
+  // find recipe based on ID
+  Recipe.findOneAndUpdate({_id: req.params._id}, {
+    // try updating with form values
+    author: req.body.author,
+    title: req.body.title,
+    totalTime: req.body.totalTime,
+    cookTime: req.body.cookTime,
+    servings: req.body.servings,
+    ingredients: req.body.ingredients,
+    steps: req.body.steps,
+    rating: req.body.rating,
+    tags: req.body.tags
+  }, (err, updatedRecipe) => {
+    if (err) {
+      console.log(err)
+    }
+    else {
+        // redirect to /recipes
+>>>>>>> 0f007c419d0f6320d3c1818a61139885f5de8807
           res.redirect('/recipes');
       }
   });
