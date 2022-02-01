@@ -63,7 +63,8 @@ router.post('/add', (req, res, next) => {
               }
               else {
                   //if it was able to be created return object
-                  res.json(newRecipe).status(200);
+                  //res.json(newRecipe).status(200);
+                  res.redirect('/recipes');
               }
           }
       ); 
