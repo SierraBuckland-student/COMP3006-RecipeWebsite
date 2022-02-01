@@ -14,19 +14,24 @@
         <th>Steps:</th>
         <th>Rating:</th>
         <th>Tags:</th>
+        <th></th>
     </thead>
     {{#each dataset}}
     <tr>
         <td>{{this.author}}</td>
         <td>{{this.title}}</td>
         <td>{{this.totalTime}}</td>
-        {{!-- <td>{{this.img}}</td> --}}
+        <td>{{!-- {{this.img}} --}}</td>
         <td>{{this.cookTime}}</td>
         <td>{{this.servings}}</td>
         <td>{{this.ingredients}}</td>
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
         <td>{{this.tags}}</td>
+        <td>
+            <a href="/recipes/edit/{{this._id}}">Edit</a>
+            <a href="/recipes/edit/{{this._id}}">Delete</a>
+            </td>
     </tr>
     {{/each}}
 </table>

@@ -23,7 +23,7 @@ router.get('/add', (req, res, next) => {
   });
 });
 
-//POST handler for adding a recipe
+//POST handler for addign a recipe
 router.post('/add', (req, res, next) => {
   //validate for required fields
   if (!req.body.author) {
