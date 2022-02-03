@@ -1,6 +1,6 @@
 var express = require('express');
-const Recipe = require('../models/recipe')
 var router = express.Router();
+const Recipe = require('../models/recipe')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,8 +9,11 @@ router.get('/', function(req, res, next) {
       console.log(err);
     }
     else {
-      res.render('recipes/index', { title: 'Recipe Website', dataset: recipe});
-      console.log(recipe);
+      res.render('recipes/index', { 
+        title: 'Recipe Website', 
+        dataset: recipe,
+        user: req.user
+      });
     }
   }
 );
@@ -19,7 +22,8 @@ router.get('/', function(req, res, next) {
 //get for adding a recipe page
 router.get('/add', (req, res, next) => {
   res.render('recipes/add', {
-      title: 'Add a new recipe'
+      title: 'Add a new recipe',
+      user: req.user
   });
 });
 
@@ -81,6 +85,7 @@ router.get('/edit/:_id', (req, res, next) => {
         res.render('recipes/edit', { 
           title: 'Edit a Recipe',
           recipe: recipe,
+          user: req.user
       });
     }   
   });

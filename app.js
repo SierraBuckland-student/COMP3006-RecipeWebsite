@@ -7,11 +7,15 @@ const mongoose = require('mongoose');
 const config = require('./config/globals')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//var usersRouter = require('./routes/users');
 var recipeRouter = require('./routes/recipes');
 var toolsRouter = require('./routes/tools');
 var aboutRouter = require('./routes/about'); 
 var contactRouter = require('./routes/contact');
+
+//import passport and session
+const passport = require('passport');
+const session = require('express-session');
 
 var app = express();
 
@@ -25,8 +29,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//configure passport session cookie
+app.use(session({
+  secret: 'RecipeWebsiteCOMP3006Secret',
+  resave: false,
+  saveUninitialized: false
+}))
+
+//Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+const User = require('./models/user');
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//Page Routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 app.use('/recipes', recipeRouter);
 app.use('/tools', toolsRouter);
 app.use('/about', aboutRouter);

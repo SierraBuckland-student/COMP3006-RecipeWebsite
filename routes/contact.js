@@ -6,7 +6,10 @@ var router = express.Router();
 //Will display contents of the About Us Page
 
 router.get('/', function(req, res, next) {
-    res.render('contact', {title: 'Contact Us'})
+    res.render('contact', {
+        title: 'Contact Us',
+        user: req.user
+    });
 });
 
 module.exports = router;
