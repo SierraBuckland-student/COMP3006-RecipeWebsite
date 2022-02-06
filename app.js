@@ -12,6 +12,7 @@ var recipeRouter = require('./routes/recipes');
 var toolsRouter = require('./routes/tools');
 var aboutRouter = require('./routes/about'); 
 var contactRouter = require('./routes/contact');
+var profileRouter = require('./routes/profiles');
 
 //import passport and session
 const passport = require('passport');
@@ -53,6 +54,7 @@ app.use('/recipes', recipeRouter);
 app.use('/tools', toolsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
+app.use('/profiles', profileRouter);
 
 // Connecting to Database
 mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true })
