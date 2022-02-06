@@ -1,0 +1,31 @@
+{{#if user}}
+<h1>{{title}}</h1>
+    <a href="/profiles/edit">Settings </a> 
+    
+<form method="post">
+  <fieldset class="form-group">
+    <label for="username" class="col-2 control-label">
+      Username:
+    </label>
+    <input
+      name="username"
+      id="username"
+      required
+      value="{{user.username}}"
+    />
+  </fieldset>
+  <fieldset class="form-group">
+    <button class="btn btn-info offset-3">
+      Save
+    </button>
+  </fieldset>
+</form>
+
+
+{{else}}
+    {{!-- Refreshes the page after _ (0) seconds to the login page --}}
+    <meta http-equiv="Refresh" content="0; url='/login'" /> 
+    {{!-- If meta doesnt load in browser, the link is a fail safe --}}
+    <h1>Can NOT reach this page. Please <a href="/login">Sign in</a>.</h1>
+{{/if}}
+
