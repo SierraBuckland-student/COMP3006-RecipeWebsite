@@ -14,7 +14,9 @@
         <th>Steps:</th>
         <th>Rating:</th>
         <th>Tags:</th>
-        <th></th>
+        {{#if ../user}}
+            <th></th>
+        {{/if}}
     </thead>
     {{#each dataset}}
     <tr>
@@ -28,10 +30,12 @@
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
         <td>{{this.tags}}</td>
-        <td>
-            <a href="/recipes/edit/{{this._id}}">Edit</a>
-            <a href="/recipes/delete/{{this._id}}">Delete</a>
-        </td>
+        {{#if ../user}}
+            <td>
+                <a href="/recipes/edit/{{this._id}}">Edit</a>
+                <a href="/recipes/delete/{{this._id}}">Delete</a>
+            </td>
+        {{/if}}
     </tr>
     {{/each}}
 </table>
