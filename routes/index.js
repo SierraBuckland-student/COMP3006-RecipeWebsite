@@ -49,6 +49,11 @@ router.post('/register', (req, res, next) => {
   )
 });
 
+/* GET handler for profile page */
+router.get('/profile', (req, res, next) => {
+  res.render('profile', {title: 'Profile', user: req.user});
+})
+
 //get for logout
 router.get('/logout', (req, res, next) => {
   req.logout();
