@@ -1,0 +1,27 @@
+{{#if user}}
+<h1>{{title}}</h1>
+
+
+    
+    <h3>Username: {{user.username}}</h3>
+    
+    <h3>Public BIO </h3>
+    <p>
+        {{user.bio}}
+    </p>
+
+    <h3>Favourite Tags</h3>
+    <p>
+        {{tags}}
+    </p>
+    
+    
+
+
+{{else}}
+    {{!-- Refreshes the page after _ (0) seconds to the login page --}}
+    <meta http-equiv="Refresh" content="0; url='/login'" /> 
+    {{!-- If meta doesnt load in browser, the link is a fail safe --}}
+    <h1>Can NOT reach this page. Please <a href="/login">Sign in</a>.</h1>
+{{/if}}
+
