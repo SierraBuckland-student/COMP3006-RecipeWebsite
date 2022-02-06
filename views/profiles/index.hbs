@@ -1,23 +1,29 @@
 {{#if user}}
-<h1>{{title}}</h1>
-    <a href="/profiles/edit/{{user._id}}">Settings </a> 
+    <h1>{{user.username}}'s {{title}}</h1>
 
-    
-    <h3>Username: {{user.username}}</h3>
-    
-    <h3>Public BIO </h3>
-    <p>
-        {{user.bio}}
-    </p>
+        
+        <h3>Username: {{user.username}}</h3>
+        <h3>Basic Information</h3>
+        <p>
+            {{user.basicInfo}}
+            {{user.phonenumber}}
+        </p>
+        <h3>Public BIO </h3>
+        <p>
+            {{user.bio}}
+        </p>
 
-    <h3>Favourite Tags</h3>
-    <p>
-        {{tags}}
-    </p>
-    
-    
+        <h3>Favourite Tags</h3>
+        <p>
+            {{tags}}
+        </p>
+        
 
-
+    <a href="/profiles/edit/{{user._id}}">Your Recipes </a> |
+    <a href="/profiles/edit/{{user._id}}">Like Recipes </a> |
+    <a href="../recipes/add">Create a New Recipe </a> |
+    <a href="/profiles/edit/{{user._id}}">Settings </a> |
+    <a href="/logout">Logout </a> 
 {{else}}
     {{!-- Refreshes the page after _ (0) seconds to the login page --}}
     <meta http-equiv="Refresh" content="0; url='/login'" /> 
