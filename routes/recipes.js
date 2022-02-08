@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 //get for adding a recipe page
 router.get('/add', (req, res, next) => {
   res.render('recipes/add', {
-      title: 'Add a new recipe',
+      title: 'Add a new recipe, Hello WORLDS',
       user: req.user
   });
 });
