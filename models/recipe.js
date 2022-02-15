@@ -60,5 +60,5 @@ const createSchema = {
 //create a schema with the definition object
 
 let schObj = new mongoose.Schema(createSchema);
-
+schObj.index({'$**': 'text'}); 
 module.exports = mongoose.model('Recipe', schObj);

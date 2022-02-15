@@ -4,19 +4,37 @@ const Recipe = require('../models/recipe')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Recipe.find((err, recipe) => {
-    if (err) {
-      console.log(err);
+  const searchBarValue = req.query.search;
+  if(searchBarValue){
+    Recipe.find({$text: {$search: searchBarValue}}, (err, recipe) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user
+        });
+      }
     }
-    else {
-      res.render('recipes/index', { 
-        title: 'Recipe Website', 
-        dataset: recipe,
-        user: req.user
-      });
+  );
+  } else {
+    Recipe.find((err, recipe) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user
+        });
+      }
     }
+  );
   }
-);
+
 });
 
 //get for adding a recipe page
