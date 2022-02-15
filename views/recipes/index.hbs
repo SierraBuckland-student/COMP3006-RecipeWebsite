@@ -38,7 +38,7 @@
         {{#if ../user}}
             <td>
                 <a href="/recipes/edit/{{this._id}}">Edit</a>
-                <a href="/recipes/delete/{{this._id}}">Delete</a>
+                <a href="/recipes/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion();">Delete</a>
             </td>
         {{/if}}
     </tr>
