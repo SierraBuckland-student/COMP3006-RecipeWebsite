@@ -2,6 +2,14 @@ var express = require('express');
 var router = express.Router();
 const Recipe = require('../models/recipe')
 
+//checking if the users is logged in
+function IsLoggedIn(req,res,next) {
+  if (req.isAuthenticated()) {
+      return next();
+  }
+  res.redirect('/login');
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const searchBarValue = req.query.search;
@@ -38,15 +46,15 @@ router.get('/', function(req, res, next) {
 });
 
 //get for adding a recipe page
-router.get('/add', (req, res, next) => {
+router.get('/add', IsLoggedIn, (req, res, next) => {
   res.render('recipes/add', {
-      title: 'Add a new recipe, Hello WORLDS',
+      title: 'Add a new recipe',
       user: req.user
   });
 });
 
 //POST handler for adding a recipe
-router.post('/add', (req, res, next) => {
+router.post('/add', IsLoggedIn, (req, res, next) => {
   //validate for required fields
   if (!req.body.author) {
       res.json({ 'Validation Error': 'Recipe author is a required field' }).status(400);
@@ -68,6 +76,7 @@ router.post('/add', (req, res, next) => {
   }
   else {
     Recipe.create({ 
+              userID: req.user._id,
               author: req.body.author,
               title: req.body.title,
               totalTime: req.body.totalTime,
@@ -84,7 +93,6 @@ router.post('/add', (req, res, next) => {
                   res.json({ 'Error Message': 'Server threw exception' }).status(500);
               }
               else {
-                  //if it was able to be created return object
                   //res.json(newRecipe).status(200);
                   res.redirect('/recipes');
               }
@@ -94,7 +102,7 @@ router.post('/add', (req, res, next) => {
 });
 
 //get handler for animal edit   
-router.get('/edit/:_id', (req, res, next) => {
+router.get('/edit/:_id', IsLoggedIn, (req, res, next) => {
   Recipe.findById(req.params._id, (err, recipe) => {
       if(err) {
           console.log(err);
@@ -110,9 +118,10 @@ router.get('/edit/:_id', (req, res, next) => {
 });
 
 //post handler for editing record
-router.post('/edit/:_id', (req, res, next) => {
+router.post('/edit/:_id', IsLoggedIn, (req, res, next) => {
   Recipe.findOneAndUpdate({ _id: req.params._id},
       {
+        userID: req.user._id,
         author: req.body.author,
         title: req.body.title,
         totalTime: req.body.totalTime,
@@ -127,19 +136,19 @@ router.post('/edit/:_id', (req, res, next) => {
           console.log(err);
       }
       else {
-          res.redirect('/recipes');
+        res.redirect('/profiles/yourRecipes/:_id');
       }
   });
 });
 
 //DELETE handler for recipe   
-router.get('/delete/:_id', (req, res, next) => {
+router.get('/delete/:_id', IsLoggedIn, (req, res, next) => {
   Recipe.remove({_id: req.params._id }, (err) => {
       if(err) {
           console.log(err);
       }
       else {
-          res.redirect('/recipes')
+        res.redirect('/profiles/yourRecipes/:_id');
       }
   });
 });

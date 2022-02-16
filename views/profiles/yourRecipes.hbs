@@ -2,11 +2,6 @@
 
 <h1>{{title}}</h1>
 
-{{!-- Putting it in a form value with GET so we can call the get router --}}
-<form action="/recipes" method="GET" class="searchbar">
-    <input name="search" type="text" placeholder="Search Recipes">   
-    <input type="submit">
-</form>
 <table>
     <thead>
         <th>Title:</th>
@@ -19,6 +14,9 @@
         <th>Steps:</th>
         <th>Rating:</th>
         <th>Tags:</th>
+        {{#if ../user}}
+            <th></th>
+        {{/if}}
     </thead>
     {{#each dataset}}
     <tr>
@@ -32,6 +30,12 @@
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
         <td>{{this.tags}}</td>
+        {{#if ../user}}
+            <td>
+                <a href="/recipes/edit/{{this._id}}">Edit</a>
+                <a href="/recipes/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion();">Delete</a>
+            </td>
+        {{/if}}
     </tr>
     {{/each}}
 </table>

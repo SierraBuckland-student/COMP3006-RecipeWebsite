@@ -4,6 +4,8 @@ var router = express.Router();
 const User = require('../models/user'); 
 const passport = require('passport');
 const session = require('express-session');
+const Recipe = require('../models/recipe');
+const recipe = require('../models/recipe');
 
 //checking if the users is logged in
 function IsLoggedIn(req,res,next) {
@@ -23,6 +25,25 @@ router.get('/:_id', IsLoggedIn, (req, res, next) => {
 // router.get('/edit', (req, res, next) => {
 //     res.render('profiles/edit', {title: 'Profile', user: req.user});
 // });
+
+/* GET your recipes page. */
+router.get('/yourRecipes/:_id', IsLoggedIn, function(req, res, next) {
+    Recipe.find({ userID: req.user._id }, (err, recipe) => {
+        if (err) {
+          console.log(err);
+        }
+        else {
+          res.render('profiles/yourRecipes', { 
+            title: 'Your Recipes', 
+            dataset: recipe,
+            user: req.user
+          });
+        }
+      }
+    );
+  });
+//req.recipe.userID == req.user._id
+
 
 router.get('/edit/:_id', IsLoggedIn, (req, res, next) => {
     
