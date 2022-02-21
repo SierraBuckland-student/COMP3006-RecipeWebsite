@@ -5,6 +5,7 @@ const plm = require('passport-local-mongoose');
 var schemaDefiniton = {
     username: String,
     password: String,
+    role: String,
     oauthId: String,
     oauthProvider: String,
     Created: Date
