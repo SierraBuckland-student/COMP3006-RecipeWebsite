@@ -144,6 +144,17 @@ router.get('/delete/:_id', (req, res, next) => {
   });
 });
 
+router.get('/view/:_id', (req, response, next) => {
+  Recipe.findById(req.params._id, (err, recipe) => { // Based on the id grab the correct information for the view
+      if (err){
+          console.log(err);
+      }
+      else {
+          //render the grabbed info and put it into the form (edit view)
+          response.render('recipes/view', {title: 'HELLO', recipe: recipe}) 
+      } 
+  })
+});
 
 //Export router 
 module.exports = router;

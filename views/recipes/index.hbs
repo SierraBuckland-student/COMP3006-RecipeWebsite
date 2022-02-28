@@ -25,7 +25,7 @@
     </thead>
     {{#each dataset}}
     <tr>
-        <td>{{this.author}}</td>
+        <td><a href="/recipes/view/{{this._id}}">{{this.author}}</a></td>
         <td>{{this.title}}</td>
         <td>{{this.totalTime}}</td>
         <td>{{!-- {{this.img}} --}}</td>
