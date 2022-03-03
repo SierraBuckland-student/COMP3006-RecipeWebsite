@@ -7,6 +7,38 @@
     <input name="search" type="text" placeholder="Search Recipes">   
     <input type="submit">
 </form>
+
+<form action="/recipes" method="GET" class="searchbar">
+       <select name="meals" id="meals">
+        <option value="">Pick a meal </option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="dessert">Dessert</option>
+    </select>
+    <select name="mealType" id="mealType">
+        <option value="">Pick a meal type</option>
+        <option value="beef">Beef</option>
+        <option value="chicken">Chicken</option>
+        <option value="seafood">Seafood</option>
+        <option value="vegan">Vegan</option>
+    </select>
+
+    <select name="time" id="time">
+        <option value="">Pick a time</option>
+        <option value="20">20 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="1">1+ hour</option>
+    </select>
+    <input type="submit">
+</form>
+
+
+    
+
+
+
 <table>
     <thead>
         <th>Author:</th>

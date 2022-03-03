@@ -5,8 +5,25 @@ const Recipe = require('../models/recipe')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const searchBarValue = req.query.search;
+  const filterValue = req.query.meals; // When no other form present it works. 
+  // console.log("Search " + searchBarValue);
+  // console.log("Filter " + filterValue);
   if(searchBarValue){
     Recipe.find({$text: {$search: searchBarValue}}, (err, recipe) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user
+        });
+      }
+    }
+  );
+  } else if(filterValue){
+    Recipe.find({$text: {$search: filterValue}}, (err, recipe) => {
       if (err) {
         console.log(err);
       }
