@@ -5,6 +5,11 @@ const mongoose = require('mongoose');
 
 const createSchema = {
 
+    userID: {
+        type: String,
+        required: true
+    },
+
     author: {
         type: String,
         required: true

@@ -1,0 +1,41 @@
+{{!-- Page where users would view recipes --}}
+
+<h1>{{title}}</h1>
+
+<table>
+    <thead>
+        <th>Title:</th>
+        <th>Author:</th>
+        <th>Total Time:</th>
+        <th>Image:</th>
+        <th>Cook Time:</th>
+        <th>Servings:</th>
+        <th>Ingredients:</th>
+        <th>Steps:</th>
+        <th>Rating:</th>
+        <th>Tags:</th>
+        {{#if ../user}}
+            <th></th>
+        {{/if}}
+    </thead>
+    {{#each dataset}}
+    <tr>
+        <td>{{this.title}}</td>
+        <td>{{this.author}}</td>
+        <td>{{this.totalTime}}</td>
+        <td>{{!-- {{this.img}} --}}</td>
+        <td>{{this.cookTime}}</td>
+        <td>{{this.servings}}</td>
+        <td>{{this.ingredients}}</td>
+        <td>{{this.steps}}</td>
+        <td>{{this.rating}}</td>
+        <td>{{this.tags}}</td>
+        {{#if ../user}}
+            <td>
+                <a href="/recipes/edit/{{this._id}}">Edit</a>
+                <a href="/recipes/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion();">Delete</a>
+            </td>
+        {{/if}}
+    </tr>
+    {{/each}}
+</table>

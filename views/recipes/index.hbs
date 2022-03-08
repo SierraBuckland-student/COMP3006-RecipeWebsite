@@ -41,8 +41,8 @@
 
 <table>
     <thead>
-        <th>Author:</th>
         <th>Title:</th>
+        <th>Author:</th>
         <th>Total Time:</th>
         <th>Image:</th>
         <th>Cook Time:</th>
@@ -51,14 +51,12 @@
         <th>Steps:</th>
         <th>Rating:</th>
         <th>Tags:</th>
-        {{#if ../user}}
-            <th></th>
-        {{/if}}
     </thead>
     {{#each dataset}}
     <tr>
-        <td><a href="/recipes/view/{{this._id}}">{{this.author}}</a></td>
-        <td>{{this.title}}</td>
+        <td>{{this.author}}</td>
+        <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
+        <td>{{this.author}}</td>
         <td>{{this.totalTime}}</td>
         <td>{{!-- {{this.img}} --}}</td>
         <td>{{this.cookTime}}</td>
@@ -67,12 +65,6 @@
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
         <td>{{this.tags}}</td>
-        {{#if ../user}}
-            <td>
-                <a href="/recipes/edit/{{this._id}}">Edit</a>
-                <a href="/recipes/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion();">Delete</a>
-            </td>
-        {{/if}}
     </tr>
     {{/each}}
 </table>

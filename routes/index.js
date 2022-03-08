@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const User = require('../models/user'); 
 const passport = require('passport');
+const role = require('../config/auth');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -33,7 +34,7 @@ router.get('/register', (req, res, next) => {
 //post handler for register
 router.post('/register', (req, res, next) => {
   User.register(
-    new User({ username: req.body.username }),
+    new User({ username: req.body.username, role: role.BASIC}),
     req.body.password,
     (err, newUser) => {
       if(err) {
