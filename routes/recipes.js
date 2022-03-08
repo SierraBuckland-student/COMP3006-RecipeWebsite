@@ -13,8 +13,25 @@ function IsLoggedIn(req,res,next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const searchBarValue = req.query.search;
+  const filterValue = req.query.meals; // When no other form present it works. 
+  // console.log("Search " + searchBarValue);
+  // console.log("Filter " + filterValue);
   if(searchBarValue){
     Recipe.find({$text: {$search: searchBarValue}}, (err, recipe) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user
+        });
+      }
+    }
+  );
+  } else if(filterValue){
+    Recipe.find({$text: {$search: filterValue}}, (err, recipe) => {
       if (err) {
         console.log(err);
       }
@@ -153,6 +170,17 @@ router.get('/delete/:_id', IsLoggedIn, (req, res, next) => {
   });
 });
 
+router.get('/view/:_id', (req, response, next) => {
+  Recipe.findById(req.params._id, (err, recipe) => { // Based on the id grab the correct information for the view
+      if (err){
+          console.log(err);
+      }
+      else {
+          //render the grabbed info and put it into the form (edit view)
+          response.render('recipes/view', {title: 'HELLO', recipe: recipe}) 
+      } 
+  })
+});
 
 //Export router 
 module.exports = router;
