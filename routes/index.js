@@ -34,7 +34,7 @@ router.get('/register', (req, res, next) => {
 //post handler for register
 router.post('/register', (req, res, next) => {
   User.register(
-    new User({ username: req.body.username, role: role.BASIC}),
+    new User({ username: req.body.username}),
     req.body.password,
     (err, newUser) => {
       if(err) {

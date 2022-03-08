@@ -25,7 +25,8 @@ router.get('/', function(req, res, next) {
         res.render('recipes/index', { 
           title: 'Recipe Website', 
           dataset: recipe,
-          user: req.user
+          user: req.user,
+          role: req.role
         });
       }
     }
@@ -39,7 +40,8 @@ router.get('/', function(req, res, next) {
         res.render('recipes/index', { 
           title: 'Recipe Website', 
           dataset: recipe,
-          user: req.user
+          user: req.user,
+          role: role
         });
       }
     }
@@ -53,7 +55,8 @@ router.get('/', function(req, res, next) {
         res.render('recipes/index', { 
           title: 'Recipe Website', 
           dataset: recipe,
-          user: req.user
+          user: req.user,
+          role: req.role
         });
       }
     }
@@ -177,7 +180,12 @@ router.get('/view/:_id', (req, response, next) => {
       }
       else {
           //render the grabbed info and put it into the form (edit view)
-          response.render('recipes/view', {title: 'HELLO', recipe: recipe}) 
+          response.render('recipes/view', 
+          {
+            title: 'HELLO', 
+            recipe: recipe,
+            user: req.user
+          }) 
       } 
   })
 });
