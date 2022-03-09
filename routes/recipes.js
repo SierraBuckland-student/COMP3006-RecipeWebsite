@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const Recipe = require('../models/recipe')
+const Recipe = require('../models/recipe');
+const User = require('../models/user');
 
 //checking if the users is logged in
 function IsLoggedIn(req,res,next) {
@@ -41,7 +42,7 @@ router.get('/', function(req, res, next) {
           title: 'Recipe Website', 
           dataset: recipe,
           user: req.user,
-          role: role
+          role: req.role
         });
       }
     }
@@ -113,15 +114,19 @@ router.post('/add', IsLoggedIn, (req, res, next) => {
                   res.json({ 'Error Message': 'Server threw exception' }).status(500);
               }
               else {
-                  //res.json(newRecipe).status(200);
-                  res.redirect('/recipes');
+                res.render('recipes/view', 
+                {
+                  title: 'View Recipe', 
+                  recipe: newRecipe,
+                  user: req.user
+                }) 
               }
           }
       ); 
   }
 });
 
-//get handler for animal edit   
+//get handler for recipe edit   
 router.get('/edit/:_id', IsLoggedIn, (req, res, next) => {
   Recipe.findById(req.params._id, (err, recipe) => {
       if(err) {
@@ -155,6 +160,11 @@ router.post('/edit/:_id', IsLoggedIn, (req, res, next) => {
       if (err) {
           console.log(err);
       }
+      //else if admin return to recipes page
+      else if (req.user.role == "admin") {
+        res.redirect('/recipes');
+      }
+      //if user return to yourRecipes page
       else {
         res.redirect('/profiles/yourRecipes/:_id');
       }
@@ -167,6 +177,11 @@ router.get('/delete/:_id', IsLoggedIn, (req, res, next) => {
       if(err) {
           console.log(err);
       }
+      //else if admin return to recipes page
+      else if (req.user.role == "admin") {
+        res.redirect('/recipes');
+      }
+      //if user return to yourRecipes page
       else {
         res.redirect('/profiles/yourRecipes/:_id');
       }
@@ -182,7 +197,7 @@ router.get('/view/:_id', (req, response, next) => {
           //render the grabbed info and put it into the form (edit view)
           response.render('recipes/view', 
           {
-            title: 'HELLO', 
+            title: 'View Recipe', 
             recipe: recipe,
             user: req.user
           }) 
