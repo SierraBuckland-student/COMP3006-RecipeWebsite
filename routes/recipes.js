@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   const searchBarValue = req.query.search;
   const filterValue = req.query.meals; // When no other form present it works. 
   // console.log("Search " + searchBarValue);
-  // console.log("Filter " + filterValue);
+  console.log("Filter " + filterValue);
   if(searchBarValue){
     Recipe.find({$text: {$search: searchBarValue}}, (err, recipe) => {
       if (err) {
