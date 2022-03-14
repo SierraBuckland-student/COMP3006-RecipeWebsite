@@ -29,12 +29,19 @@
     <label for="totalTime" class="col-2 control-label">
       Total Recipe Time:
     </label>
-    <input
+    {{!-- <input
       name="totalTime"
       id="totalTime"
       required
       value="{{recipe.totalTime}}"
-    />
+    /> --}}
+     <select name="totalTime" id="totalTime" required value="{{recipe.totalTime}}">
+        <option value="">Pick a time</option>
+        <option value="20">20 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="1">1+ hour</option>
+    </select>
   </fieldset>
   <fieldset class="form-group">
     <label for="img" class="col-2 control-label">
@@ -50,12 +57,19 @@
     <label for="cookTime" class="col-2 control-label">
       Cook Time:
     </label>
-    <input
+    {{!-- <input
       name="cookTime"
       id="cookTime"
       required
       value="{{recipe.cookTime}}"
-    />
+    /> --}}
+    <select name="cookTime" id="cookTime" required value="{{recipe.cookTime}}">
+        <option value="">Pick a time</option>
+        <option value="20">20 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="1">1+ hour</option>
+    </select>
   </fieldset>
   <fieldset class="form-group">
     <label for="servings" class="col-2 control-label">

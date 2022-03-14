@@ -27,11 +27,13 @@
     <label for="totalTime" class="col-2 control-label">
       Total Recipe Time:
     </label>
-    <input
-      name="totalTime"
-      id="totalTime"
-      required
-    />
+    <select name="totalTime" id="totalTime" required>
+        <option value="">Pick a time</option>
+        <option value="20">20 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="1">1+ hour</option>
+    </select>
   </fieldset>
   <fieldset class="form-group">
     <label for="img" class="col-2 control-label">
@@ -46,11 +48,13 @@
     <label for="cookTime" class="col-2 control-label">
       Cook Time:
     </label>
-    <input
-      name="cookTime"
-      id="cookTime"
-      required
-    />
+    <select name="cookTime" id="cookTime" required>
+        <option value="">Pick a time</option>
+        <option value="20">20 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="1">1+ hour</option>
+    </select>
   </fieldset>
   <fieldset class="form-group">
     <label for="servings" class="col-2 control-label">
@@ -108,7 +112,7 @@
             d.splice(index, 1);
           }
         }
-        var arr = d.join(', '); // makign it readable by adding a space
+        var arr = d.join(', '); // making it readable by adding a space
         let myJSON = arr.toString(); // turning the array into a string
         document.getElementById("tags").value = myJSON; // setting the string to a hidden field to pass through to db. 
       }

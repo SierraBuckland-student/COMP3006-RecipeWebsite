@@ -48,8 +48,8 @@
         <th>Steps:</th>
         <th>Rating:</th>
         <th>Tags:</th>
-        {{#if ../user}}
-            <th></th>
+        {{#if user.role}}
+            <th>ADMIN</th>
         {{/if}}
     </thead>
     {{#each dataset}}
@@ -64,7 +64,7 @@
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
         <td>{{this.tags}}</td>
-        {{#if ../user}}
+        {{#if ../user.role}}
             <td>
                 <a href="/recipes/edit/{{this._id}}">Edit</a>
                 <a href="/recipes/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion();">Delete</a>
