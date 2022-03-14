@@ -12,10 +12,12 @@ function IsLoggedIn(req,res,next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // Make the query parameters consts to search against
   const searchBarValue = req.query.search;
-  const filterValue = req.query.meals; // When no other form present it works. 
-  // console.log("Search " + searchBarValue);
-  console.log("Filter " + filterValue);
+  const mealValue = req.query.meals;
+  const mealTypeValue = req.query.mealType; 
+  const timeValue = req.query.time;
+
   if(searchBarValue){
     Recipe.find({$text: {$search: searchBarValue}}, (err, recipe) => {
       if (err) {
@@ -30,8 +32,8 @@ router.get('/', function(req, res, next) {
       }
     }
   );
-  } else if(filterValue){
-    Recipe.find({$text: {$search: filterValue}}, (err, recipe) => {
+  } else if(mealValue || mealTypeValue || timeValue){
+    Recipe.find({$text: {$search: mealValue}}, (err, recipe) => { //~~~~~~~~~Easier way to do all 3 at once or they're else if statements
       if (err) {
         console.log(err);
       }

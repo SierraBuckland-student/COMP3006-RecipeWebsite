@@ -82,15 +82,39 @@
       required
     />
   </fieldset>
+ 
   <fieldset class="form-group">
     <label for="tags" class="col-2 control-label">
       Tags:
     </label>
-    <input
+    <input hidden
       name="tags"
       id="tags"
+      required
     />
+    <input type="checkbox" name="recipe" value="breakfast" onchange="chkbox(this)" />Breakfast 
+    <input type="checkbox" name="recipe" value="lunch" onchange="chkbox(this)" />Lunch
+    <input type="checkbox" name="recipe" value="dinner" onchange="chkbox(this)" />Dinner
+    <input type="checkbox" name="recipe" value="dessert" onchange="chkbox(this)" />Dessert
+   <script>
+      var d = new Array();
+      function chkbox(this1) {
+        var s = this1.value;
+        if (this1.checked) {
+          d.push(s);
+        } else {
+          var index = d.indexOf(s);
+          if (index > -1) {
+            d.splice(index, 1);
+          }
+        }
+        var arr = d.join(', '); // makign it readable by adding a space
+        let myJSON = arr.toString(); // turning the array into a string
+        document.getElementById("tags").value = myJSON; // setting the string to a hidden field to pass through to db. 
+      }
+   </script>
   </fieldset>
+ 
   <fieldset class="form-group">
     <label for="rating" class="col-2 control-label">
       Rating:
