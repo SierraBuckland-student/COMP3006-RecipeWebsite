@@ -13,10 +13,15 @@ var toolsRouter = require('./routes/tools');
 var aboutRouter = require('./routes/about'); 
 var contactRouter = require('./routes/contact');
 var profileRouter = require('./routes/profiles');
+var authRouter = require('./routes/auth');
 
 //import passport and session
 const passport = require('passport');
 const session = require('express-session');
+
+//github and google oauth
+const GithubStrategy = require('passport-github2').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 var app = express();
 
@@ -44,8 +49,65 @@ app.use(passport.session());
 const User = require('./models/user');
 passport.use(User.createStrategy());
 
+//Google Auth
+passport.use(new GoogleStrategy({
+  clientID: config.google.clientId,
+  clientSecret: config.google.clientSecret,
+  callbackURL: config.google.callbackUrl
+},
+  async (accessToken, refreshToken, profile, done) => {
+    const user = await User.findOne({ oauthId: profile.id });
+    if(user) {
+      return done(null, user);
+    }
+    else {
+      const newUser = new User({
+        username: profile.displayName,
+        oauthId: profile.id,
+        oauthProvider: 'Google',
+        created: Date.now()
+      });
+      //add new user to db
+      const saveUser = await newUser.save();
+      return done(null, saveUser);
+    }
+  })
+);
+
+//Github auth
+passport.use(new GithubStrategy({
+  clientID: config.github.clientId,
+  clientSecret: config.github.clientSecret,
+  callbackURL: config.github.callbackUrl
+},
+async (accessToken, refreshToken, profile, done) => {
+  const user = await User.findOne({ oauthId: profile.id });
+  if(user) {
+    return done(null, user);
+  }
+  else {
+    const newUser = new User({
+      username: profile.username,
+      oauthId: profile.id,
+      oauthProvider: 'GitHub',
+      created: Date.now()
+    });
+    //add new user to db
+    const saveUser = await newUser.save();
+    return done(null, saveUser);
+  }
+})
+);
+
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+/* passport.serializeUser((user, done) => {
+  done(null,user.id)
+})
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err,user) => done(err,user))
+}) */
 
 //Page Routes
 app.use('/', indexRouter);
@@ -55,6 +117,7 @@ app.use('/tools', toolsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/profiles', profileRouter);
+app.use('/auth', authRouter);
 
 // Connecting to Database
 mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true })
