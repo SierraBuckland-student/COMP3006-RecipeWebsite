@@ -11,17 +11,15 @@
 
 <h2>Recipe of the Day</h2>
 
-<table style="border: none;">
-  <tr>
-    <th><img
-        src="http://2.bp.blogspot.com/-rxE4z5Os2Y0/Tt-ZDN6Q1RI/AAAAAAAAAmY/H0iQ9fQH_V8/s1600/butternut+squash+soup.JPG"
-        alt="squash-soup"
-        height="200"
-        width="200"
-      />
-      <br>Butternut Squash Soup
-      </th>
-  </tr>
+<h2>Recipe of the Day</h2>
+{{!-- Copy - pasted the loop so that the random recipe can display accordingly --}}
+<table>
+    {{#each dataset}}
+    <tr>
+        <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
+        <td>{{this.author}}</td>
+    </tr>
+    {{/each}}
 </table>
 
 <h2>Other Recipes</h2>
