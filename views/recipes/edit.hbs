@@ -35,12 +35,19 @@
       required
       value="{{recipe.totalTime}}"
     /> --}}
-     <select name="totalTime" id="totalTime" required value="{{recipe.totalTime}}">
+     <select name="totalTime" id="totalTime" required>
+      {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
+      {{!-- Use helper instead of hardcoding--}}
         <option value="">Pick a time</option>
+        {{createOption '20' recipe.totalTime}}
+        {{createOption '30' recipe.totalTime}}
+        {{createOption '45' recipe.totalTime}}
+        {{createOption '1' recipe.totalTime}}
+        {{!-- <option value="">Pick a time</option>
         <option value="20">20 minutes</option>
         <option value="30">30 minutes</option>
         <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option>
+        <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
   <fieldset class="form-group">
@@ -63,12 +70,19 @@
       required
       value="{{recipe.cookTime}}"
     /> --}}
-    <select name="cookTime" id="cookTime" required value="{{recipe.cookTime}}">
+    <select name="cookTime" id="cookTime" required>
+      {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
+      {{!-- Use helper instead of hardcoding--}}
         <option value="">Pick a time</option>
+        {{createOption '20' recipe.cookTime}}
+        {{createOption '30' recipe.cookTime}}
+        {{createOption '45' recipe.cookTime}}
+        {{createOption '1' recipe.cookTime}}
+        {{!-- <option value="">Pick a time</option>
         <option value="20">20 minutes</option>
         <option value="30">30 minutes</option>
         <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option>
+        <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
   <fieldset class="form-group">
@@ -105,14 +119,26 @@
     />
   </fieldset>
   <fieldset class="form-group">
-    <label for="tags" class="col-2 control-label">
-      Tags:
-    </label>
-    <input
-      name="tags"
-      id="tags"
-      value="{{recipe.tags}}"
-    />
+    <label for="mealProtein" class="col-2 control-label"> Tags:</label> 
+    <select name="mealProtein" id="mealProtein" required>
+        <option value="">Pick a meal protein</option>
+        <option value="beef">Beef</option>
+        <option value="chicken">Chicken</option>
+        <option value="seafood">Seafood</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+    </select>
+  </fieldset>
+ 
+  <fieldset class="form-group">
+    <label for="mealTime" class="col-2 control-label"> Tags:</label> 
+    <select name="mealTime" id="mealTime">
+        <option value="">Pick a meal </option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="dessert">Dessert</option>
+    </select>
   </fieldset>
   <fieldset class="form-group">
     <label for="rating" class="col-2 control-label">

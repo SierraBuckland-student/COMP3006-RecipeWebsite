@@ -13,10 +13,12 @@ function IsLoggedIn(req,res,next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // Make the query parameters consts to search against
   const searchBarValue = req.query.search;
-  const filterValue = req.query.meals; // When no other form present it works. 
-  // console.log("Search " + searchBarValue);
-  // console.log("Filter " + filterValue);
+  const mealTimeValue = req.query.mealTime;
+  const mealProteinValue = req.query.mealProtein; 
+  const timeValue = req.query.time;
+
   if(searchBarValue){
     Recipe.find({$text: {$search: searchBarValue}}, (err, recipe) => {
       if (err) {
@@ -32,8 +34,13 @@ router.get('/', function(req, res, next) {
       }
     }
   );
-  } else if(filterValue){
-    Recipe.find({$text: {$search: filterValue}}, (err, recipe) => {
+  // If all values are in the filter string
+  } else if(mealTimeValue && mealProteinValue && timeValue ){ //if the filter has been used
+    Recipe.find({
+      mealProtein: { "$in": [mealProteinValue]},
+      mealTime: { "$in": [mealTimeValue]},
+      totalTime: { "$in": [timeValue]}
+    }, (err, recipe) => { 
       if (err) {
         console.log(err);
       }
@@ -47,7 +54,126 @@ router.get('/', function(req, res, next) {
       }
     }
   );
-  } else {
+  } 
+  // If Protein  and mealtime is available
+  else if(mealTimeValue && mealProteinValue){ //if the filter has been used
+    Recipe.find({
+      mealProtein: { "$in": [mealProteinValue]},
+      mealTime: { "$in": [mealTimeValue]}
+    }, (err, recipe) => { 
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user,
+          role: req.role
+        });
+      }
+    }
+  );
+  } 
+  //If protein and totaltime are available
+  else if(mealProteinValue && timeValue ){ //if the filter has been used
+    Recipe.find({
+      mealProtein: { "$in": [mealProteinValue]},
+      totalTime: { "$in": [timeValue]}
+    }, (err, recipe) => { 
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user,
+          role: req.role
+        });
+      }
+    }
+  );
+  } 
+  //If meal and time are inputted
+  else if(mealTimeValue && timeValue ){ //if the filter has been used
+    Recipe.find({
+      mealTime: { "$in": [mealTimeValue]},
+      totalTime: { "$in": [timeValue]}
+    }, (err, recipe) => { 
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user,
+          role: req.role
+        });
+      }
+    }
+  );
+  } 
+  // If just mealTime is inputted
+  else if(mealTimeValue){ //if the filter has been used
+    Recipe.find({
+      mealTime: { "$in": [mealTimeValue]}
+    }, (err, recipe) => { 
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user,
+          role: req.role
+        });
+      }
+    }
+  );
+  } 
+  // If just Protein is inputted
+  else if(mealProteinValue){ //if the filter has been used
+    Recipe.find({
+      mealProtein: { "$in": [mealProteinValue]}
+    }, (err, recipe) => { 
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user,
+          role: req.role
+        });
+      }
+    }
+  );
+  } 
+  //if total time 
+  else if(timeValue ){ //if the filter has been used
+    Recipe.find({
+      totalTime: { "$in": [timeValue]}
+    }, (err, recipe) => { 
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.render('recipes/index', { 
+          title: 'Recipe Website', 
+          dataset: recipe,
+          user: req.user,
+          role: req.role
+        });
+      }
+    }
+  );
+  } 
+  // If all else fails
+  else {
     Recipe.find((err, recipe) => {
       if (err) {
         console.log(err);
@@ -106,7 +232,8 @@ router.post('/add', IsLoggedIn, (req, res, next) => {
               ingredients: req.body.ingredients,
               steps: req.body.steps,
               rating: req.body.rating,
-              tags: req.body.tags
+              mealProtein: req.body.mealProtein,
+              mealTime: req.body.mealTime
           }, // add recipe to the db
           (err, newRecipe) => {
               if (err) {
@@ -155,7 +282,8 @@ router.post('/edit/:_id', IsLoggedIn, (req, res, next) => {
         ingredients: req.body.ingredients,
         steps: req.body.steps,
         rating: req.body.rating,
-        tags: req.body.tags
+        mealProtein: req.body.mealProtein,
+        mealTime: req.body.mealTime
   }, (err, updatedRecipe) => {
       if (err) {
           console.log(err);

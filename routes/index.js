@@ -3,13 +3,27 @@ var router = express.Router();
 const User = require('../models/user'); 
 const passport = require('passport');
 const role = require('../config/auth');
+const Recipe = require('../models/recipe');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
-    title: 'Recipe Website',
-    user: req.user
-  });
+
+  //Retrieve one random recipe (or one random document) from our collection/database
+  Recipe.aggregate([{$sample: {size: 1}}], (err, recipe)=> {
+
+    if(err) {
+      console.log(err);
+    }
+
+    else {
+      res.render('index', { 
+        title: 'Recipe Website',
+        dataset: recipe,
+        user: req.user
+      });
+    }
+
+  })
 });
 
 //get handler for login

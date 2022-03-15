@@ -86,15 +86,31 @@
       required
     />
   </fieldset>
+ 
   <fieldset class="form-group">
-    <label for="tags" class="col-2 control-label">
-      Tags:
-    </label>
-    <input
-      name="tags"
-      id="tags"
-    />
+    <label for="mealProtein" class="col-2 control-label"> Tags:</label> 
+    <select name="mealProtein" id="mealProtein" required>
+        <option value="">Pick a meal protein</option>
+        <option value="beef">Beef</option>
+        <option value="chicken">Chicken</option>
+        <option value="seafood">Seafood</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+    </select>
   </fieldset>
+ 
+
+  <fieldset class="form-group">
+    <label for="mealTime" class="col-2 control-label"> Tags:</label> 
+    <select name="mealTime" id="mealTime">
+        <option value="">Pick a meal </option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="dessert">Dessert</option>
+    </select>
+  </fieldset>
+
   <fieldset class="form-group">
     <label for="rating" class="col-2 control-label">
       Rating:
