@@ -1,4 +1,5 @@
 var express = require('express');
+var helpers = require('handlebars-helpers')();
 var router = express.Router();
 const Recipe = require('../models/recipe');
 const User = require('../models/user');

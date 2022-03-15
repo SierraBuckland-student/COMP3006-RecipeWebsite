@@ -56,10 +56,25 @@
     <tr>
         <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
         <td>{{this.author}}</td>
-        <td>{{this.totalTime}} minutes</td>
+        {{#ifeq this.totalTime "1"}} 
+            <td>{{this.totalTime}} hour</td>
+        {{/ifeq}}
+        {{#ifnoteq this.totalTime "1"}} 
+            <td>{{this.totalTime}} minutes</td> 
+        {{/ifnoteq}}
         <td>{{!-- {{this.img}} --}}</td>
-        <td>{{this.cookTime}}</td>
-        <td>{{this.servings}}</td>
+        {{#ifeq this.cookTime "1"}} 
+            <td>{{this.cookTime}} hour</td>
+        {{/ifeq}}
+        {{#ifnoteq this.cookTime "1"}} 
+            <td>{{this.cookTime}} minutes</td> 
+        {{/ifnoteq}}
+        {{#ifeq this.servings "1"}} 
+            <td>{{this.servings}} serving</td>
+        {{/ifeq}}
+        {{#ifnoteq this.servings "1"}} 
+            <td>{{this.servings}} servings</td> 
+        {{/ifnoteq}}
         <td>{{this.ingredients}}</td>
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
