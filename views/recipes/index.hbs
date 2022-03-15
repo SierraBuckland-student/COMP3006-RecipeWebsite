@@ -9,14 +9,14 @@
 </form>
 
 <form action="/recipes" method="GET" class="searchbar">
-       <select name="meals" id="meals">
+       <select name="mealTime" id="meals">
         <option value="">Pick a meal </option>
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
         <option value="dinner">Dinner</option>
         <option value="dessert">Dessert</option>
     </select>
-    <select name="mealType" id="mealType">
+    <select name="mealProtein" id="mealType">
         <option value="">Pick a meal type</option>
         <option value="beef">Beef</option>
         <option value="chicken">Chicken</option>
@@ -63,7 +63,7 @@
         <td>{{this.ingredients}}</td>
         <td>{{this.steps}}</td>
         <td>{{this.rating}}</td>
-        <td>{{this.tags}}</td>
+        <td>{{this.mealTime}}, {{this.mealProtein}}, {{this.totalTime}} </td>
         {{#if ../user.role}}
             <td>
                 <a href="/recipes/edit/{{this._id}}">Edit</a>
