@@ -3,7 +3,7 @@
 
         
         <h3>Username: {{user.username}}</h3>
-        <h3>Basic Information</h3>
+        {{!-- <h3>Basic Information</h3>
         <p>
             {{user.basicInfo}}
             {{user.phonenumber}}
@@ -16,11 +16,10 @@
         <h3>Favourite Tags</h3>
         <p>
             {{tags}}
-        </p>
+        </p> --}}
         
 
     <a href="/profiles/yourRecipes/{{user._id}}">Your Recipes </a> |
-    <a href="/profiles/edit/{{user._id}}">Liked Recipes </a> |
     <a href="../recipes/add">Create a New Recipe </a> |
     <a href="/profiles/edit/{{user._id}}">Settings </a> |
     <a href="/logout">Logout </a> 
