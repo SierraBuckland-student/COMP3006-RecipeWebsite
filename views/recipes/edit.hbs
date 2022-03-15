@@ -35,12 +35,19 @@
       required
       value="{{recipe.totalTime}}"
     /> --}}
-     <select name="totalTime" id="totalTime" required value="{{recipe.totalTime}}">
+     <select name="totalTime" id="totalTime" required>
+      {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
+      {{!-- Use helper instead of hardcoding--}}
         <option value="">Pick a time</option>
+        {{createOption '20' recipe.totalTime}}
+        {{createOption '30' recipe.totalTime}}
+        {{createOption '45' recipe.totalTime}}
+        {{createOption '1' recipe.totalTime}}
+        {{!-- <option value="">Pick a time</option>
         <option value="20">20 minutes</option>
         <option value="30">30 minutes</option>
         <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option>
+        <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
   <fieldset class="form-group">
@@ -63,12 +70,19 @@
       required
       value="{{recipe.cookTime}}"
     /> --}}
-    <select name="cookTime" id="cookTime" required value="{{recipe.cookTime}}">
+    <select name="cookTime" id="cookTime" required>
+      {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
+      {{!-- Use helper instead of hardcoding--}}
         <option value="">Pick a time</option>
+        {{createOption '20' recipe.cookTime}}
+        {{createOption '30' recipe.cookTime}}
+        {{createOption '45' recipe.cookTime}}
+        {{createOption '1' recipe.cookTime}}
+        {{!-- <option value="">Pick a time</option>
         <option value="20">20 minutes</option>
         <option value="30">30 minutes</option>
         <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option>
+        <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
   <fieldset class="form-group">
