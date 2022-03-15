@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const config = require('./config/globals')
 
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
 var recipeRouter = require('./routes/recipes');
 var toolsRouter = require('./routes/tools');
 var aboutRouter = require('./routes/about'); 
@@ -101,17 +100,9 @@ async (accessToken, refreshToken, profile, done) => {
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-/* passport.serializeUser((user, done) => {
-  done(null,user.id)
-})
-
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err,user) => done(err,user))
-}) */
 
 //Page Routes
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 app.use('/recipes', recipeRouter);
 app.use('/tools', toolsRouter);
 app.use('/about', aboutRouter);
