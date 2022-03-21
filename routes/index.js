@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
     else {
       res.render('index', { 
-        title: 'Recipe Website',
+        title: 'The Ham Samwichez',
         dataset: recipe,
         user: req.user
       });

@@ -7,14 +7,14 @@ LH Feb 1 - Edited the head tags to have a title and icon.
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipe Website Name</title>
+    <title>The Ham Samwichez</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/scripts.js"></script>
-    {{!-- Icon Not working - could leave for Phase 3--}}
-    <link rel="icon" type="image/ico" href="/../public/images/favicon.ico" />
+    <link rel="icon" href="/uploads/HamSandwich.jpg" type="image/x-icon">
     {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> --}}
   </head>
   <header> 
+    <img src="/uploads/HamSandwich.jpg" style="width: 30px; height: 30px;">
     <a href = "/">Home</a> |
     <a href="/recipes"> Recipes </a> |
     {{#if user}}

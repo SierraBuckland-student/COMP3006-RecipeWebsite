@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const Recipe = require('../models/recipe');
 const User = require('../models/user');
+const multer = require('multer');
+
 
 //checking if the users is logged in
 function IsLoggedIn(req,res,next) {
@@ -26,7 +28,7 @@ router.get('/', function(req, res, next) {
       }
       else {
         res.render('recipes/index', { 
-          title: 'Recipe Website', 
+          title: 'The Ham Samwichez', 
           dataset: recipe,
           user: req.user,
           role: req.role
@@ -46,7 +48,7 @@ router.get('/', function(req, res, next) {
       }
       else {
         res.render('recipes/index', { 
-          title: 'Recipe Website', 
+          title: 'Recipe The Ham Samwichez', 
           dataset: recipe,
           user: req.user,
           role: req.role
@@ -200,8 +202,28 @@ router.get('/add', IsLoggedIn, (req, res, next) => {
   });
 });
 
+
+
+// Define the Storage of the image
+const storage = multer.diskStorage({
+  // Destination for files
+  destination:function(req, file, callback){
+    callback(null, './uploads/'); // error, destination string of where the file will be saved
+  },
+  // add back the file type as multer strips it on storage
+  filename:function(req, file, callback){
+    callback(null, Date.now()+file.originalname); //DateNow gives it a time stamp along with file.originalname allows it to be dynamic for each photo
+  }
+});
+
+//upload parameter for multer
+const upload = multer({
+  storage:storage
+}).single("img");
+
+
 //POST handler for adding a recipe
-router.post('/add', IsLoggedIn, (req, res, next) => {
+router.post('/add', IsLoggedIn, upload, (req, res, next) => {
   //validate for required fields
   if (!req.body.author) {
       res.json({ 'Validation Error': 'Recipe author is a required field' }).status(400);
@@ -226,6 +248,7 @@ router.post('/add', IsLoggedIn, (req, res, next) => {
               userID: req.user._id,
               author: req.body.author,
               title: req.body.title,
+              img: req.file.filename,
               totalTime: req.body.totalTime,
               cookTime: req.body.cookTime,
               servings: req.body.servings,

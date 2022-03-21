@@ -1,6 +1,6 @@
 {{!-- Page where users would view recipes --}}
 
-<h1>{{title}}</h1>
+<h1>The Ham Samwichez</h1>
 
 {{!-- Putting it in a form value with GET so we can call the get router --}}
 <form action="/recipes" method="GET" class="searchbar">
@@ -57,7 +57,7 @@
         <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
         <td>{{this.author}}</td>
         <td>{{this.totalTime}} minutes</td>
-        <td>{{!-- {{this.img}} --}}</td>
+        <td><img src="/uploads/{{this.img}}" style="width: 60px; height: 60px;"></td>
         <td>{{this.cookTime}}</td>
         <td>{{this.servings}}</td>
         <td>{{this.ingredients}}</td>

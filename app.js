@@ -6,8 +6,6 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/globals')
 
-
-
 var indexRouter = require('./routes/index');
 var recipeRouter = require('./routes/recipes');
 var toolsRouter = require('./routes/tools');
@@ -135,6 +133,8 @@ hbs.registerHelper('createOption', (currentValue, selectedValue) => {
   // return new hbs.SafeString('<option '+ selectedProperty +'>' + currentValue + '</option>');
   return new hbs.SafeString(`<option ${selectedProperty}>${currentValue}</option>`);
 });
+
+app.use(express.static(path.join(__dirname))); // Needed to display images on the page
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

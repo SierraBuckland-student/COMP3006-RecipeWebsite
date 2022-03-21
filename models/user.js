@@ -6,6 +6,7 @@ var schemaDefiniton = {
     username: String,
     password: String,
     role: String,
+    img: String, 
     oauthId: String,
     oauthProvider: String,
     Created: Date
