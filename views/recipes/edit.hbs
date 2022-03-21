@@ -2,7 +2,7 @@
 <h1>
   Edit a recipe
 </h1>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   <fieldset class="form-group">
     <label for="author" class="col-2 control-label">
       Recipe Author:
@@ -50,15 +50,9 @@
         <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
-  <fieldset class="form-group">
-    <label for="img" class="col-2 control-label">
-      Image:
-    </label>
-    <input
-      name="img"
-      id="img"
-      {{!-- value="{{recipe.img}}" --}}
-    />
+    <fieldset class="form-group">
+    <label for="img" class="col-2 control-label">Upload Image:</label>
+    <input type="file" name="img" id="img" />
   </fieldset>
   <fieldset class="form-group">
     <label for="cookTime" class="col-2 control-label">

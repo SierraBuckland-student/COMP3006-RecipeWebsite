@@ -294,11 +294,12 @@ router.get('/edit/:_id', IsLoggedIn, (req, res, next) => {
 });
 
 //post handler for editing record
-router.post('/edit/:_id', IsLoggedIn, (req, res, next) => {
+router.post('/edit/:_id', IsLoggedIn, upload, (req, res, next) => {
   Recipe.findOneAndUpdate({ _id: req.params._id},
       {
         userID: req.user._id,
         author: req.body.author,
+        img:req.file.filename,
         title: req.body.title,
         totalTime: req.body.totalTime,
         cookTime: req.body.cookTime,
