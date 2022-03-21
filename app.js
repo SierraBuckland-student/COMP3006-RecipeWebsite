@@ -134,7 +134,22 @@ hbs.registerHelper('createOption', (currentValue, selectedValue) => {
   return new hbs.SafeString(`<option ${selectedProperty}>${currentValue}</option>`);
 });
 
+
+
+//hbs helper method for comparison if statement
+hbs.registerHelper('ifeq', function (a, b, options) {
+  if (a == b) { return options.fn(this); }
+  return options.inverse(this);
+});
+
+hbs.registerHelper('ifnoteq', function (a, b, options) {
+  if (a != b) { return options.fn(this); }
+  return options.inverse(this);
+});
+
+
 app.use(express.static(path.join(__dirname))); // Needed to display images on the page
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

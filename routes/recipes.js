@@ -1,4 +1,5 @@
 var express = require('express');
+var helpers = require('handlebars-helpers')();
 var router = express.Router();
 const Recipe = require('../models/recipe');
 const User = require('../models/user');
@@ -296,7 +297,6 @@ router.get('/edit/:_id', IsLoggedIn, (req, res, next) => {
 router.post('/edit/:_id', IsLoggedIn, (req, res, next) => {
   Recipe.findOneAndUpdate({ _id: req.params._id},
       {
-        userID: req.user._id,
         author: req.body.author,
         title: req.body.title,
         totalTime: req.body.totalTime,
