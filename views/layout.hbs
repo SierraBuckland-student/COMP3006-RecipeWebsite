@@ -20,14 +20,18 @@ LH Feb 1 - Edited the head tags to have a title and icon.
     </div>
     <div class="header-links">
       <a href = "/">Home</a> |
-      <a href="/recipes"> Recipes </a> |
+      <a href="/recipes"> Recipes </a> 
       {{#if user}}
-        <a href="/recipes/add">Add Recipe </a> |
-        <a href="/profiles/{{user._id}}">{{user.username}}</a> |
-        <a href="/logout">Logout</a> 
+        | <a href="/recipes/add">Add Recipe </a> 
+        <div class="users">
+          <a href="/profiles/{{user._id}}">{{user.username}}</a> |
+          <a href="/logout">Logout</a> 
+        </div>
       {{else}}
-        <a href="/login">Login</a> |
-        <a href="/register">Register</a> 
+        <div class="users">
+          <a href="/login">Login</a> |
+          <a href="/register">Register</a> 
+        </div>
       {{/if}}
     </div>
   </header>

@@ -1,25 +1,35 @@
 header{
-    text-align: center;
+    position: relative;
+    /* text-align: center; */
     font-size: 1.7em;
     color: #cfcfcf;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 .header-links{
+    position: relative;
+    text-align: center; 
     padding-top: 1rem;
+    padding-left: 0rem;
+}
+.users{
+    position: relative;
+    text-align: right;
+    /* padding-top: 1rem; */
+    bottom: 4.75rem;
 }
 .logo{
     text-align: left;
 }
 #logo{
+    position: fixed;
     width: 130px;
     height: 130px;
-    margin-top: -3rem;
-    position: absolute;
+    margin-top: -2.5rem;
     border-radius: 50%;
 }
 body{
     position: relative;
-    min-height: 84vh;
+    min-height: 78vh;
     padding-bottom: 7rem;
     background-color: #f1f1f1;
  }
