@@ -1,0 +1,35 @@
+header{
+    text-align: center;
+    font-size: 1.7em;
+    color: #cfcfcf;
+    padding-bottom: 5rem;
+}
+.header-links{
+    padding-top: 1rem;
+}
+.logo{
+    text-align: left;
+}
+#logo{
+    width: 130px;
+    height: 130px;
+    margin-top: -3rem;
+    position: absolute;
+    border-radius: 50%;
+}
+body{
+    position: relative;
+    min-height: 84vh;
+    padding-bottom: 7rem;
+    background-color: #f1f1f1;
+ }
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+a:link{
+    text-decoration: none;
+    
+}
