@@ -9,7 +9,7 @@ LH Feb 1 - Edited the head tags to have a title and icon.
   <head>
     <title>The Ham Samwichez</title>
     {{!-- <link rel='stylesheet' href='/stylesheets/style.css' /> --}}
-    <link rel='stylesheet' href='/stylesheets/mylesStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/headingAndFooterStyle.css' />
     <script src="/javascripts/scripts.js"></script>
     <link rel="icon" href="/uploads/HamSandwich.jpg" type="image/x-icon">
   </head>
@@ -24,13 +24,13 @@ LH Feb 1 - Edited the head tags to have a title and icon.
         | <a class="links" href="/recipes/add">Add Recipe </a> 
       </div>
         <div class="usersIn">
-            <a class="userlinks" href="/profiles/{{user._id}}">{{user.username}}</a> |
-            <a class="userlinks" href="/logout">Logout</a> 
+            <a class="links" href="/profiles/{{user._id}}">{{user.username}}</a> |
+            <a class="links" href="/logout">Logout</a> 
         </div>
       {{else}}
         <div class="usersOut">
-          <a class="userlinks" href="/login">Login</a> |
-          <a class="userlinks" href="/register">Register</a> 
+          <a class="links" href="/login">Login</a> |
+          <a class="links" href="/register">Register</a> 
         </div>
       {{/if}}
     </div>
