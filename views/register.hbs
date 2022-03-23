@@ -1,54 +1,74 @@
-<div class="container">
-<h1>
-  Register
-</h1>
-<form method="post">
-  <fieldset class="form-group">
-    <label for="username" class="col-2 control-label">
-      Username: *
-    </label>
-    <input
-      name="username"
-      id="username"
-      required
-      type="email"
-      placeholder="email@email.com"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="password" class="col-2 control-label">
-      Password: *
-    </label>
-    <p>Minimum eight characters, at least one uppercase letter and one number</p>
-    <input
-      name="password"
-      id="password"
-      type="password"
-      required
-      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="confirm" class="col-2 control-label">
-      Confirm: *
-    </label>
-    <input
-      name="confirm"
-      id="confirm"
-      type="password"
-      required
-      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <button class="btn btn-info offset-3">
+<main class="container">
+  <div class="title">
+    <h1>
       Register
-    </button>
-    <hr />
-    Already have an account?
-    <a href="/login" title="login">
-      Login
-    </a>
-  </fieldset>
-</form>
-</div>
+    </h1>
+    <div class="subtitle">
+      <p>Already have an account? <a href="/login" title="login">Login</a></p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="register-page">
+      <form method="post">
+        <div class="register-form">
+          <div class="fieldset">
+            <div class="label">
+              <label for="username" class="col-2 control-label">
+                Username:
+              </label>
+            </div>
+            <div class="field">
+              <input
+                class="input-text"
+                name="username"
+                id="username"
+                required
+                type="email"
+                placeholder="email@email.com"
+              />
+            </div>
+          </div>
+          <div class="fieldset">
+            <div class="label">
+              <label for="password" class="col-2 control-label">
+                Password: <br /> *Minimum 8 characters, at least 1 uppercase letter and 1 number
+              </label>
+            </div>
+            <div class="field">
+              <input
+                class="input-text"
+                name="password"
+                id="password"
+                type="password"
+                required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              />
+            </div>
+          </div>
+          <div class="fieldset">
+            <div class="label">
+              <label for="confirm" class="col-2 control-label">
+                Confirm: 
+              </label>
+            </div>
+            <div class="field">
+              <input
+                class="input-text"
+                name="confirm"
+                id="confirm"
+                type="password"
+                required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-button">
+          <button class="register-button">
+            Register
+          </button>
+        </div>
+      </form> 
+    </div>
+  </div>
+</main>

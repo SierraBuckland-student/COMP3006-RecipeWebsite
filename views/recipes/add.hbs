@@ -15,6 +15,8 @@
       <input
         name="author"
         id="author"
+        type="text"
+        maxlength="25"
         required
       />
     </div>
@@ -27,6 +29,8 @@
       <input
         name="title"
         id="title"
+        type="text"
+        maxlength="25"
         required
       />
       <div>
@@ -67,6 +71,8 @@
     </label>
     <input
       name="servings"
+      type="number"
+      max="48"
       id="servings"
       required
     />
@@ -93,8 +99,8 @@
   </fieldset>
  
   <fieldset class="form-group">
-    <label for="mealProtein" class="control-label"> Recipe Protein:</label> 
-    <select name="mealProtein" id="mealProtein" required>
+    <label for="mealProtein" class="col-2 control-label"> Recipe Protein:</label> 
+    <select name="mealProtein" id="mealProtein">
         <option value="">Pick a meal protein</option>
         <option value="beef">Beef</option>
         <option value="chicken">Chicken</option>
@@ -123,6 +129,9 @@
     <input
       name="rating"
       id="rating"
+      type="number"
+      min="1"
+      max="5"
       value="{{recipe.rating}}"
     />
   </fieldset>

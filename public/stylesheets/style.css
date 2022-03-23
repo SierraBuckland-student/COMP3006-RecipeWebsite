@@ -1,6 +1,8 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* padding: 50px; */
+  /* font-family: 'EB Garamond', serif; */
+  font-family: 'Karla', sans-serif;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
 
 a {
@@ -17,3 +19,4 @@ th,
 td {
   border: 1px solid black;
 }
+

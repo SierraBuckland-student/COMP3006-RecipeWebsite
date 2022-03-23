@@ -1,41 +1,66 @@
+
+<main class="container">
+  <div class="title">
     <h1 class="cover-heading">
       {{title}}
     </h1>
-{{#if messages}}
-    <div class="alert alert-danger">
-        Invalid credentials
+    <div class="subtitle">
+      <p>Dont have an account yet? <a href="/register" title="register"> Register </a></p>
     </div>
-{{else}}
-    <div class="alert alert-info">
-        Please enter your credentials
+    <div class="subtitle">
+      {{#if messages}}
+        <div class="bad">
+            Invalid credentials
+        </div>
+      {{else}}
+        <div class="alert alert-info">
+            Please enter your credentials
+        </div>
+      {{/if}}
     </div>
-{{/if}}
-<form method="post">
-  <fieldset class="form-group">
-    <label for="username" class="col-2 control-label">
-      Username: *
-    </label>
-    <input name="username" id="username" required />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="password" class="col-2 control-label">
-      Password: *
-    </label>
-    <input name="password" id="password" type="password" required />
-  </fieldset>
-  <fieldset class="form-group">
-    <button class="btn btn-info offset-3">
-      Login
-    </button>
-    <hr />
-    <a href="/auth/github" class="btn btn-info">Login with Github</a>
-    <a href="/auth/google" class="btn btn-info">Login with Google</a>
-    <hr />
-    Dont have an account yet?
-    <a href="/register" title="register">
-      Register
-    </a>
-  </fieldset>
-</form>
-
+  </div>
+  <div class="page-body">
+    <div class="login-page">
+      <form method="post">
+        <div class="login-form">
+          <div class="fieldset">
+            <div class="label">
+              <label for="username" class="col-2 control-label">
+                Username:
+              </label>
+            </div>
+            <div class="field">
+              <input class="input-text" name="username" id="username" required />
+            </div>
+          </div>
+          <div class="fieldset">
+            <div class="label">
+              <label for="password" class="col-2 control-label">
+                Password:
+              </label>
+            </div>
+            <div class="field">
+              <input class="input-text" name="password" id="password" type="password" required />
+            </div>
+          </div>     
+        </div>
+        <div class="form-button">
+          <button class="login-button">
+            Login
+          </button>
+        </div>
+        <div class="form-button">
+          <button class="login-button">
+            <a href="/auth/github" class="btn btn-info">Login with Github</a>
+          </button>
+        </div>
+        <div class="form-button">
+          <button class="login-button">
+            <a href="/auth/google" class="btn btn-info">Login with Google</a>
+          </button>
+        </div>  
+      </form>
+    </div>
+  </div>
+</main>
 

@@ -1,32 +1,36 @@
-{{#if user}}
-    <h1>{{user.username}}'s {{title}}</h1>
-
-        <img src="/uploads/{{user.img}}" style="width: 60px; height: 60px;">
-        <h3>Username: {{user.username}}</h3>
-        {{!-- <h3>Basic Information</h3>
-        <p>
-            {{user.basicInfo}}
-            {{user.phonenumber}}
-        </p>
-        <h3>Public BIO </h3>
-        <p>
-            {{user.bio}}
-        </p>
-
-        <h3>Favourite Tags</h3>
-        <p>
-            {{tags}}
-        </p> --}}
-        
-
-    <a href="/profiles/yourRecipes/{{user._id}}">Your Recipes </a> |
-    <a href="../recipes/add">Create a New Recipe </a> |
-    <a href="/profiles/edit/{{user._id}}">Settings </a> |
-    <a href="/logout">Logout </a> 
-{{else}}
-    {{!-- Refreshes the page after _ (0) seconds to the login page --}}
-    <meta http-equiv="Refresh" content="0; url='/login'" /> 
-    {{!-- If meta doesnt load in browser, the link is a fail safe --}}
-    <h1>Can NOT reach this page. Please <a href="/login">Sign in</a>.</h1>
-{{/if}}
+<main class="container">
+    <div class="title">
+        <h1 class="cover-heading"> {{user.username}}'s {{title}}</h1>
+    </div>
+    <div class="page-body">
+        <div class="profile-page">
+            {{#if user}}           
+                <h3>Username: {{user.username}}</h3>
+                <div class="profile-image-div">
+                    <img class="profile-image" src="/uploads/{{user.img}}" style="width: 110px; height: 90px;">
+                </div>
+                <div class="profile-option-buttons">
+                    <a class="cta" href="/profiles/yourRecipes/{{user._id}}"><span>Your Recipes</span></a>
+                </div> 
+                <div class="profile-option-buttons">
+                    <a class="cta" href="#"><span>Liked Recipes</span></a> 
+                </div> 
+                <div class="profile-option-buttons">
+                    <a class="cta" href="../recipes/add"><span>New Recipe</span></a> 
+                </div> 
+                <div class="profile-option-buttons">
+                    <a class="cta" href="/profiles/edit/{{user._id}}"><span>Settings</span></a> 
+                </div>   
+                <div class="profile-option-buttons">
+                    <a class="cta" href="/logout"><span>Logout</span></a> 
+                </div> 
+            {{else}}
+                {{!-- Refreshes the page after _ (0) seconds to the login page --}}
+                <meta http-equiv="Refresh" content="0; url='/login'" /> 
+                {{!-- If meta doesnt load in browser, the link is a fail safe --}}
+                <h1>Can NOT reach this page. Please <a href="/login">Sign in</a>.</h1>
+            {{/if}}
+        </div>
+    </div>
+</main>
 

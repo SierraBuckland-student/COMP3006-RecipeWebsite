@@ -55,8 +55,7 @@ const createSchema = {
     },
 
     mealProtein: { 
-        type: String, 
-        required: true
+        type: String
     },
 
     mealTime: { 

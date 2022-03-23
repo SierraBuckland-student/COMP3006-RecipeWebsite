@@ -8,51 +8,57 @@ LH Feb 1 - Edited the head tags to have a title and icon.
 <html>
   <head>
     <title>The Ham Samwichez</title>
-    {{!-- <link rel='stylesheet' href='/stylesheets/style.css' /> --}}
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/sierra.css' />
     <link rel='stylesheet' href='/stylesheets/headingAndFooterStyle.css' />
     <script src="/javascripts/scripts.js"></script>
     <link rel="icon" href="/uploads/HamSandwich.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Karla&display=swap" rel="stylesheet">
   </head>
-  <header> 
-    <div class="headerTitle">
-      <a class="links" id="title" href="/">The Ham Sandwichez</a> 
-    </div>
-    <div class="header-links">
-      <div class="main-header-links">
-      <a class="links" href="/recipes"> Recipes </a> 
-      {{#if user}}
-        | <a class="links" href="/recipes/add">Add Recipe </a> 
+  <div class="page">
+    <header>
+      <div class="headerTitle">
+        <a class="links" id="title" href="/">The Ham Sandwichez</a> 
       </div>
-        <div class="usersIn">
-            <a class="links" href="/profiles/{{user._id}}">{{user.username}}</a> |
-            <a class="links" href="/logout">Logout</a> 
+      <div class="header-links">
+        <div class="main-header-links">
+        <a class="links" href="/recipes"> Recipes </a> 
+        {{#if user}}
+          | <a class="links" href="/recipes/add">Add Recipe </a> 
         </div>
-      {{else}}
-        <div class="usersOut">
-          <a class="links" href="/login">Login</a> |
-          <a class="links" href="/register">Register</a> 
-        </div>
-      {{/if}}
-    </div>
-    <div class="logo">
-      <img id="logo" src="/uploads/HamSandwich.jpg">
-    </div>
-  </header>
-  <body>
-    {{{body}}}
-  </body>
-  <footer>
-    <span class="footer-links">
-      <nav>
-        <a class="links" href="/about">About Us</a> |
-        <a class="links" href="/contact">Contact Us</a> |
-        <a class="links" href="/tools">Tools</a> 
-      </nav>
-    </span>
-    <small>Lindsay Hunter, Myles Megaffin, Sierra Buckland, Taeler Burgess</small>
-    </br>
-    <small>Copyright: This is an educational assignment for COMP3006 at Georgian College. This website is intended for educational purposes only.</small>
-    </br>
-    <small>Created icon design at LogoMakr.com</small>
-  </footer>
+          <div class="usersIn">
+              <a class="links" href="/profiles/{{user._id}}">{{user.username}}</a> |
+              <a class="links" href="/logout">Logout</a> 
+          </div>
+        {{else}}
+          <div class="usersOut">
+            <a class="links" href="/login">Login</a> |
+            <a class="links" href="/register">Register</a> 
+          </div>
+        {{/if}}
+      </div>
+      <div class="logo">
+        <img id="logo" src="/uploads/HamSandwich.jpg">
+      </div>
+    </header>
+    <body>
+      {{{body}}}
+    </body>
+    <footer>
+      <span class="footer-links">
+        <nav>
+          <a class="links" href="/about">About Us</a> |
+          <a class="links" href="/contact">Contact Us</a> |
+          <a class="links" href="/tools">Tools</a> 
+        </nav>
+      </span>
+      <small>Lindsay Hunter, Myles Megaffin, Sierra Buckland, Taeler Burgess</small>
+      </br>
+      <small>Copyright: This is an educational assignment for COMP3006 at Georgian College. This website is intended for educational purposes only.</small>
+      </br>
+      <small>Created icon design at LogoMakr.com</small>
+    </footer>
+  </div>
 </html>
