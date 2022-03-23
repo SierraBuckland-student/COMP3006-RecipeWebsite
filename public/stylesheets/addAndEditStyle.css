@@ -21,8 +21,6 @@ h1{
     transition: 0.3s;
 }
 input{
-    display: flex;
-    justify-content: flex-end;
     width: 20rem;
     height: 1.5rem;
     font-size: 20px;
@@ -34,4 +32,8 @@ select{
 label{
     display: flex;
     justify-content: flex-start;
+    padding-left: 15rem;
+}
+.formlabels{
+    padding-left: 15rem;
 }
