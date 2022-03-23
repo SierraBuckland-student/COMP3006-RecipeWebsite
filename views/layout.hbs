@@ -9,36 +9,42 @@ LH Feb 1 - Edited the head tags to have a title and icon.
   <head>
     <title>Recipe Website Name</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/sierra.css' />
     <script src="/javascripts/scripts.js"></script>
     {{!-- Icon Not working - could leave for Phase 3--}}
     <link rel="icon" type="image/ico" href="/../public/images/favicon.ico" />
     {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Karla&display=swap" rel="stylesheet">
   </head>
-  <header> 
-    <a href = "/">Home</a> |
-    <a href="/recipes"> Recipes </a> |
-    {{#if user}}
-      <a href="/recipes/add">Add Recipe </a> |
-      <a href="/profiles/{{user._id}}">{{user.username}}</a> |
-      <a href="/logout">Logout</a> 
-    {{else}}
-      <a href="/login">Login</a> |
-      <a href="/register">Register</a> 
-    {{/if}}
-  </header>
-  <body>
-    {{{body}}}
-  </body>
-  <footer>
-    <nav>
-      <a href="/about">About Us</a> |
-      <a href="/contact">Contact Us</a> |
-      <a href="/tools">Tools</a> 
-    </nav>
-    <small>Lindsay Hunter, Myles Megaffin, Sierra Buckland, Taeler Burgess</small>
-    </br>
-    <small>Copyright: This is an educational assignment for COMP3006 at Georgian College. This website is intended for educational purposes only.</small>
-    </br>
-    <small>Created icon design at LogoMakr.com</small>
-  </footer>
+  <div class="page">
+    <header> 
+      <a href = "/">Home</a> |
+      <a href="/recipes"> Recipes </a> |
+      {{#if user}}
+        <a href="/recipes/add">Add Recipe </a> |
+        <a href="/profiles/{{user._id}}">{{user.username}}</a> |
+        <a href="/logout">Logout</a> 
+      {{else}}
+        <a href="/login">Login</a> |
+        <a href="/register">Register</a> 
+      {{/if}}
+    </header>
+    <body>
+      {{{body}}}
+    </body>
+    <footer>
+      <nav>
+        <a href="/about">About Us</a> |
+        <a href="/contact">Contact Us</a> |
+        <a href="/tools">Tools</a> 
+      </nav>
+      <small>Lindsay Hunter, Myles Megaffin, Sierra Buckland, Taeler Burgess</small>
+      </br>
+      <small>Copyright: This is an educational assignment for COMP3006 at Georgian College. This website is intended for educational purposes only.</small>
+      </br>
+      <small>Created icon design at LogoMakr.com</small>
+    </footer>
+  </div>
 </html>

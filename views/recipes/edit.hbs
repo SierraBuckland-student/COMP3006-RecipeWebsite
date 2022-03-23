@@ -10,6 +10,8 @@
     <input
       name="author"
       id="author"
+      type="text"
+      maxlength="25"
       required
       value="{{recipe.author}}"
     />
@@ -21,6 +23,8 @@
     <input
       name="title"
       id="title"
+      type="text"
+      maxlength="25"
       required
       value="{{recipe.title}}"
     />
@@ -29,12 +33,6 @@
     <label for="totalTime" class="col-2 control-label">
       Total Recipe Time:
     </label>
-    {{!-- <input
-      name="totalTime"
-      id="totalTime"
-      required
-      value="{{recipe.totalTime}}"
-    /> --}}
      <select name="totalTime" id="totalTime" required>
       {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
       {{!-- Use helper instead of hardcoding--}}
@@ -43,11 +41,6 @@
         {{createOption '30' recipe.totalTime}}
         {{createOption '45' recipe.totalTime}}
         {{createOption '1' recipe.totalTime}}
-        {{!-- <option value="">Pick a time</option>
-        <option value="20">20 minutes</option>
-        <option value="30">30 minutes</option>
-        <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
   <fieldset class="form-group">
@@ -64,12 +57,6 @@
     <label for="cookTime" class="col-2 control-label">
       Cook Time:
     </label>
-    {{!-- <input
-      name="cookTime"
-      id="cookTime"
-      required
-      value="{{recipe.cookTime}}"
-    /> --}}
     <select name="cookTime" id="cookTime" required>
       {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
       {{!-- Use helper instead of hardcoding--}}
@@ -78,11 +65,6 @@
         {{createOption '30' recipe.cookTime}}
         {{createOption '45' recipe.cookTime}}
         {{createOption '1' recipe.cookTime}}
-        {{!-- <option value="">Pick a time</option>
-        <option value="20">20 minutes</option>
-        <option value="30">30 minutes</option>
-        <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option> --}}
     </select>
   </fieldset>
   <fieldset class="form-group">
@@ -92,6 +74,8 @@
     <input
       name="servings"
       id="servings"
+      type="number"
+      max="48"
       required
       value="{{recipe.servings}}"
     />
@@ -120,7 +104,7 @@
   </fieldset>
   <fieldset class="form-group">
     <label for="mealProtein" class="col-2 control-label"> Tags:</label> 
-    <select name="mealProtein" id="mealProtein" required>
+    <select name="mealProtein" id="mealProtein" >
         <option value="">Pick a meal protein</option>
         {{createOption 'beef' recipe.mealProtein}}
         {{createOption 'chicken' recipe.mealProtein}}
@@ -147,6 +131,9 @@
     <input
       name="rating"
       id="rating"
+      type="number"
+      min="1"
+      max="5"
       value="{{recipe.rating}}"
     />
   </fieldset>

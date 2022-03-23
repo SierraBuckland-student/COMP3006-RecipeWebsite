@@ -1,25 +1,41 @@
 {{#if user}}
-<h1>{{title}}</h1>
-    <a href="/profiles/edit">Settings </a> 
-    
-<form method="post">
-  <fieldset class="form-group">
-    <label for="username" class="col-2 control-label">
-      Username:
-    </label>
-    <input
-      name="username"
-      id="username"
-      required
-      value="{{user.username}}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <button class="btn btn-info offset-3">
-      Save
-    </button>
-  </fieldset>
-</form>
+<main class="container">
+  <div class="title">
+    <h1 class="cover-heading">
+      {{title}}
+    </h1>
+    <div class="subtitle">
+      <p> Edit profile information </p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="settings-page">
+      <form method="post">
+        <div class="settings-form">
+          <div class="fieldset">
+            <div class="label">
+              <label for="username" class="col-2 control-label">
+                Username:
+              </label>             
+            </div>
+            <div class="field">
+              <input class="input-text" name="username" id="username" required value="{{user.username}}"/>
+            </div>
+          </div>
+          <div class="form-button">
+            <button class="save-button">
+              Save
+            </button>
+          </div>
+      </form> 
+      <div class="form-button">
+        <button class="save-button">
+          <a href="/profiles/edit">Return to Profile Page </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
 
 
 {{else}}
