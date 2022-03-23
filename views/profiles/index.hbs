@@ -6,6 +6,7 @@
         <div class="profile-page">
             {{#if user}}           
                 <h3>Username: {{user.username}}</h3>
+                <img src="/uploads/{{user.img}}" style="width: 60px; height: 60px;">
                 <div class="profile-option-buttons">
                     <a class="cta" href="/profiles/yourRecipes/{{user._id}}"><span>Your Recipes</span></a>
                 </div> 

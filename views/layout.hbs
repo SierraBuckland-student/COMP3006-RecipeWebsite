@@ -7,39 +7,53 @@ LH Feb 1 - Edited the head tags to have a title and icon.
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipe Website Name</title>
+    <title>The Ham Samwichez</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/sierra.css' />
+    <link rel='stylesheet' href='/stylesheets/headingAndFooterStyle.css' />
     <script src="/javascripts/scripts.js"></script>
-    {{!-- Icon Not working - could leave for Phase 3--}}
-    <link rel="icon" type="image/ico" href="/../public/images/favicon.ico" />
-    {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> --}}
+    <link rel="icon" href="/uploads/HamSandwich.jpg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Karla&display=swap" rel="stylesheet">
   </head>
   <div class="page">
     <header> 
-      <a href = "/">Home</a> |
-      <a href="/recipes"> Recipes </a> |
-      {{#if user}}
-        <a href="/recipes/add">Add Recipe </a> |
-        <a href="/profiles/{{user._id}}">{{user.username}}</a> |
-        <a href="/logout">Logout</a> 
-      {{else}}
-        <a href="/login">Login</a> |
-        <a href="/register">Register</a> 
-      {{/if}}
+      <div class="title">
+        <a class="links" id="title" href="/">The Ham Sandwichez</a> 
+      </div>
+      <div class="header-links">
+        <div class="main-header-links">
+        <a class="links" href="/recipes"> Recipes </a> 
+        {{#if user}}
+          | <a class="links" href="/recipes/add">Add Recipe </a> 
+        </div>
+          <div class="usersIn">
+              <a class="links" href="/profiles/{{user._id}}">{{user.username}}</a> |
+              <a class="links" href="/logout">Logout</a> 
+          </div>
+        {{else}}
+          <div class="usersOut">
+            <a class="links" href="/login">Login</a> |
+            <a class="links" href="/register">Register</a> 
+          </div>
+        {{/if}}
+      </div>
+      <div class="logo">
+        <img id="logo" src="/uploads/HamSandwich.jpg">
+      </div>
     </header>
     <body>
       {{{body}}}
     </body>
     <footer>
-      <nav>
-        <a href="/about">About Us</a> |
-        <a href="/contact">Contact Us</a> |
-        <a href="/tools">Tools</a> 
-      </nav>
+      <span class="footer-links">
+        <nav>
+          <a class="links" href="/about">About Us</a> |
+          <a class="links" href="/contact">Contact Us</a> |
+          <a class="links" href="/tools">Tools</a> 
+        </nav>
+      </span>
       <small>Lindsay Hunter, Myles Megaffin, Sierra Buckland, Taeler Burgess</small>
       </br>
       <small>Copyright: This is an educational assignment for COMP3006 at Georgian College. This website is intended for educational purposes only.</small>

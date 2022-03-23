@@ -1,5 +1,6 @@
 {{!-- Page where users would view recipes --}}
-<h1>{{title}}</h1>
+
+<h1>The Ham Samwichez</h1>
 
 {{!-- Putting it in a form value with GET so we can call the get router --}}
 <form action="/recipes" method="GET" class="searchbar">
@@ -61,7 +62,7 @@
         {{#ifnoteq this.totalTime "1"}} 
             <td>{{this.totalTime}} minutes</td> 
         {{/ifnoteq}}
-        <td>{{!-- {{this.img}} --}}</td>
+         <td><img src="/uploads/{{this.img}}" style="width: 60px; height: 60px;"></td>
         {{#ifeq this.cookTime "1"}} 
             <td>{{this.cookTime}} hour</td>
         {{/ifeq}}
@@ -92,23 +93,23 @@
 <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
 <script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
 </script>

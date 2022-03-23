@@ -10,7 +10,8 @@
   </div>
   <div class="page-body">
     <div class="settings-page">
-      <form method="post">
+
+      <form method="post" enctype="multipart/form-data">
         <div class="settings-form">
           <div class="fieldset">
             <div class="label">
@@ -22,12 +23,20 @@
               <input class="input-text" name="username" id="username" required value="{{user.username}}"/>
             </div>
           </div>
-          <div class="form-button">
-            <button class="save-button">
-              Save
-            </button>
+          <div class="fieldset">
+            <div class="label"
+              <label for="img" class="col-2 control-label">Upload Image:</label>
+            </div>
+            <div class="field">
+              <input type="file" name="img" id="img" />
+            </div>
           </div>
+          <div class="form-button">
+            <button class="save-button">Save</button>
+          </div>
+        </div>
       </form> 
+
       <div class="form-button">
         <button class="save-button">
           <a href="/profiles/edit">Return to Profile Page </a>

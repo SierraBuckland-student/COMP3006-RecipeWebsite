@@ -25,9 +25,8 @@ const createSchema = {
         required: true
     }, 
 
-    img: {
-        data: Buffer,
-        contentType: String
+    img: { 
+        type: String
     },
 
     cookTime: {
