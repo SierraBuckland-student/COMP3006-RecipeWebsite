@@ -288,3 +288,10 @@ span:nth-child(2) {
   position: relative;
   top: 12%;
 }
+
+.profile-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
