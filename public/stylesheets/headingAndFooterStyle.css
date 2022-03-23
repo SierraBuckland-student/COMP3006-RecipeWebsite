@@ -6,6 +6,8 @@ header{
     color: #aec3b0;
     padding-bottom: 3rem;
     background-color: #598392;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 .main-header-links{
     top: 3rem;
@@ -15,10 +17,8 @@ header{
     padding-left: 0rem;
     font-size: 1.7em;
 }
-#title{
+.headerTitle{
     font-size: 3rem;
-}
-.title{
     position: relative;
     color: #e6e6e6;
     padding-left: 13rem;
@@ -70,8 +70,12 @@ footer{
     background-color: #598392;
     padding-right: 0rem;
     margin-bottom: -9px;
+    
 }
 .links{
     text-decoration: none;
     color: #aec3b0;
+}
+.links:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.05);
 }
