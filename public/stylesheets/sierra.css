@@ -1,0 +1,297 @@
+.page {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Scroll to top button styles */
+#myBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: #124559; 
+  color: white; 
+  cursor: pointer;
+  padding: 7px 15px; 
+  border-radius: 10px; 
+  font-size: 25px; 
+  font-family: "Karla", sans-serif;
+}
+
+#myBtn:hover {
+  background-color: #01161e; /* Add a dark-grey background on hover */
+}
+
+/* register page */
+
+/* register, login, settings button */
+.register-button,
+.login-button,
+.save-button {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.register-button:before,
+.login-button:before,
+.save-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #01161e,
+    #072632,
+    #0a2e3c,
+    #0f3d4f,
+    #124559,
+    #598392,
+    #94aea2,
+    #aec3b0,
+    #466f76,
+    #124559,
+    #01161e
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.register-button:active,
+.login-button:active,
+.save-button:active {
+  color: rgb(255, 251, 251);
+}
+
+.register-button:active:after,
+.login-button:active:after,
+.save-button:active:after {
+  background: transparent;
+}
+
+.register-button:hover:before,
+.login-button:hover:before,
+.save-button:hover:before {
+  opacity: 1;
+}
+
+.register-button:after,
+.login-button:after,
+.save-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: #111; */
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+/* end of button*/
+
+.container {
+  background-color: #e6e6e6;
+  flex: 1;
+}
+
+.container .title {
+  margin-top: 48px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.container .title h1 {
+  font-size: 3rem;
+  margin: 0px;
+  font-family: "EB Garamond", serif;
+}
+
+.title .subtitle {
+  font-size: 0.875rem;
+  margin: 10px 0px;
+}
+
+.container .page-body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.register-form,
+.login-form,
+.profile-page,
+.settings-form {
+  background-color: #ffffff;
+  max-width: 485px;
+  padding: 48px 56px 36px;
+  margin: 0 auto 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fieldset .label {
+  text-align: left;
+}
+
+.form-button {
+  text-align: center;
+  margin: 40px 0px;
+}
+
+.register-button,
+.login-button,
+.save-button {
+  border-radius: 5px;
+  color: #ffffff;
+  height: 48px;
+  max-width: 400px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-family: "Karla", sans-serif;
+}
+
+.register-form .fieldset,
+.login-form .fieldset,
+.settings-form .fieldset {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.fieldset .field {
+  flex-basis: 100%;
+  padding-bottom: 20px;
+}
+
+.field p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.fieldset .label {
+  padding-bottom: 7px;
+}
+
+.input-text {
+  box-sizing: border-box;
+  border-color: #3b3939;
+  border-radius: 4px;
+  border-width: 1px;
+  appearance: none;
+  outline: none;
+  width: 100%;
+  padding: 12px 9px;
+}
+
+.subtitle .bad {
+  color: red;
+}
+
+.login-button a,
+.save-button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Karla", sans-serif;
+}
+
+/* profile page styles */
+.profile-page h3 {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.profile-option-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+  display: flex;
+  width: 200px;
+  padding: 10px 45px;
+  margin: 15px 0px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: white;
+  background: #124559;
+  transition: 1s;
+  box-shadow: 6px 6px 0 #01161e;
+  transform: skewX(-15deg);
+  justify-content: center;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #598392;
+}
+
+.cta span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+span {
+  transform: skewX(15deg);
+}
+
+span:nth-child(2) {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+.profile-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
