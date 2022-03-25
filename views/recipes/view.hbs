@@ -2,10 +2,14 @@
 <h2 id="view_title">{{recipe.title}}</h2>
 <p id="view_tags">{{recipe.mealTime}}</p> 
 <p id="view_tags">{{recipe.mealProtein}}</p>
-<p id="view_tags">{{recipe.totalTime}} </p>
+{{#ifeq this.totalTime "1"}} 
+    <p id="view_tags">{{recipe.totalTime}} hour </p>
+{{/ifeq}}
+{{#ifnoteq this.totalTime "1"}} 
+    <p id="view_tags">{{recipe.totalTime}} minutes </p>
+{{/ifnoteq}}
 
 <h4 id="view_author">Author: {{recipe.author}}</h4>
-
 <p id="view_tidbits">Cook time: {{recipe.cookTime}}</p>
 <p id="view_tidbits">Total time: {{recipe.totalTime}}</p>
 <p id="view_tidbits">Servings: {{recipe.servings}}</p>
