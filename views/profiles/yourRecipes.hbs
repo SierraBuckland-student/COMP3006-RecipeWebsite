@@ -28,7 +28,7 @@
         {{#ifnoteq this.totalTime "1"}} 
             <td>{{this.totalTime}} minutes</td> 
         {{/ifnoteq}}
-        <td>{{!-- {{this.img}} --}}</td>
+        <td><img src="/uploads/{{this.img}}" style="width: 60px; height: 60px;"></td>
         {{#ifeq this.cookTime "1"}} 
             <td>{{this.cookTime}} hour</td>
         {{/ifeq}}

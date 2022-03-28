@@ -209,17 +209,29 @@ router.get('/add', IsLoggedIn, (req, res, next) => {
 const storage = multer.diskStorage({
   // Destination for files
   destination:function(req, file, callback){
-    callback(null, './uploads/'); // error, destination string of where the file will be saved
+    callback(null, './uploads/'); // errormsg, destination string of where the file will be saved
   },
   // add back the file type as multer strips it on storage
   filename:function(req, file, callback){
-    callback(null, Date.now()+file.originalname); //DateNow gives it a time stamp along with file.originalname allows it to be dynamic for each photo
+    if (!file){ // If the file doesn't exist
+      callback(null, 'HamSandwich.jpg');
+    } else {
+      callback(null, Date.now()+file.originalname); //DateNow gives it a time stamp along with file.originalname allows it to be dynamic for each photo
+    }
   }
 });
 
 //upload parameter for multer
 const upload = multer({
-  storage:storage
+  storage:storage,
+  fileFilter: (req, file, callback) => { // Adding file type validation to uploads
+    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+      callback(null, true);
+    } else {
+      callback(null, false);
+      return callback(new Error('Only .png, .jpg and .jpeg format allowed!'));
+    }
+  }
 }).single("img");
 
 
@@ -246,34 +258,32 @@ router.post('/add', IsLoggedIn, upload, (req, res, next) => {
   }
   else {
     Recipe.create({ 
-              userID: req.user._id,
-              author: req.body.author,
-              title: req.body.title,
-              img: req.file.filename,
-              totalTime: req.body.totalTime,
-              cookTime: req.body.cookTime,
-              servings: req.body.servings,
-              ingredients: req.body.ingredients,
-              steps: req.body.steps,
-              rating: req.body.rating,
-              mealProtein: req.body.mealProtein,
-              mealTime: req.body.mealTime
-          }, // add recipe to the db
-          (err, newRecipe) => {
-              if (err) {
-                  console.log(err);
-                  res.json({ 'Error Message': 'Server threw exception' }).status(500);
-              }
-              else {
-                res.render('recipes/view', 
-                {
-                  title: 'View Recipe', 
-                  recipe: newRecipe,
-                  user: req.user
-                }) 
-              }
-          }
-      ); 
+      userID: req.user._id,
+      author: req.body.author,
+      title: req.body.title,
+      img: req.file.filename,
+      totalTime: req.body.totalTime,
+      cookTime: req.body.cookTime,
+      servings: req.body.servings,
+      ingredients: req.body.ingredients,
+      steps: req.body.steps,
+      rating: req.body.rating,
+      mealProtein: req.body.mealProtein,
+      mealTime: req.body.mealTime
+  }, // add recipe to the db
+  (err, newRecipe) => {
+      if (err) {
+          console.log(err);
+          res.json({ 'Error Message': 'Server threw exception' }).status(500);
+      }
+      else {
+        res.render('recipes/view', 
+        {
+          title: 'View Recipe', 
+          recipe: newRecipe,
+          user: req.user
+        }) 
+      }});
   }
 });
 
@@ -295,7 +305,36 @@ router.get('/edit/:_id', IsLoggedIn, (req, res, next) => {
 
 //post handler for editing record
 router.post('/edit/:_id', IsLoggedIn, upload, (req, res, next) => {
-  Recipe.findOneAndUpdate({ _id: req.params._id},
+  if(!req.body.img){
+    Recipe.findOneAndUpdate({ _id: req.params._id},
+      {
+        userID: req.user._id,
+        author: req.body.author,
+        img: 'HamSandwich.jpg',
+        title: req.body.title,
+        totalTime: req.body.totalTime,
+        cookTime: req.body.cookTime,
+        servings: req.body.servings,
+        ingredients: req.body.ingredients,
+        steps: req.body.steps,
+        rating: req.body.rating,
+        mealProtein: req.body.mealProtein,
+        mealTime: req.body.mealTime
+  }, (err, updatedRecipe) => {
+      if (err) {
+          console.log(err);
+      }
+      //else if admin return to recipes page
+      else if (req.user.role == "admin") {
+        res.redirect('/recipes');
+      }
+      //if user return to yourRecipes page
+      else {
+        res.redirect('/profiles/yourRecipes/:_id');
+      }
+  });
+  } else {
+    Recipe.findOneAndUpdate({ _id: req.params._id},
       {
         userID: req.user._id,
         author: req.body.author,
@@ -322,6 +361,7 @@ router.post('/edit/:_id', IsLoggedIn, upload, (req, res, next) => {
         res.redirect('/profiles/yourRecipes/:_id');
       }
   });
+  }
 });
 
 //DELETE handler for recipe   
@@ -341,6 +381,7 @@ router.get('/delete/:_id', IsLoggedIn, (req, res, next) => {
   });
 });
 
+// The Router to the single recipe page 
 router.get('/view/:_id', (req, response, next) => {
   Recipe.findById(req.params._id, (err, recipe) => { // Based on the id grab the correct information for the view
       if (err){

@@ -6,7 +6,7 @@
 <div class="formbody">
 <div class="card">
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" name="myForm" enctype="multipart/form-data">
   <fieldset class="form-group">
     <label for="author" class="control-label">
       Recipe Author:
@@ -46,7 +46,7 @@
   
   <fieldset class="form-group">
     <label for="img" class="control-label">Upload Image:</label>
-    <input type="file" name="img" id="img" />
+    <input  type="file" name="img" id="img" required />
   </fieldset>
 
   <fieldset class="form-group">
