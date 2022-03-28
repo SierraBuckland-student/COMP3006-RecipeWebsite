@@ -1,16 +1,27 @@
 {{!-- TO ADD: Vegan Substitutes, Ingredient Swapping, Internal temperatures,   --}}
 
-<h1>Tools</h1>
-<nav>
-  <a href="#temp-con">Temperature Conversion</a>
-  <a href="#vol-con">Volume Conversion</a>
-  <a href="#veg-sub">Vegan Substitutions</a>
-  <a href="#bake-sub">Baking Substitutes</a>
-  <a href="#internal-temp">Meat Internal Temperature</a>
-</nav>
+{{!-- Referencing the stylesheet --}}
 
+{{!-- UPDATE -- Added more to the following elements --}}
+<head>
+  <link rel="stylesheet" href="../public/stylesheets/tools.css">
+</head>
+  
+ <h1>Tools</h1>
+  <div id="links">
+    <nav>
+    <a href="#temp-con">Temperature Conversion</a>
+    <a href="#vol-con">Volume Conversion</a>
+    <a href="#veg-sub">Vegan Substitutions</a>
+    <a href="#bake-sub">Baking Substitutes</a>
+    <a href="#internal-temp">Meat Internal Temperature</a>
+  </nav>
+  </div>
+
+<div id="wrapper"> 
+<section>
 <h3 id="temp-con">TEMPERATURE CONVERSION</h3>
-<table>
+<table class="centre1">
   <tr>
     <th>Fahrenheit</th>
     <th>Celsius</th>
@@ -49,9 +60,11 @@
     <td>220°C</td>
   </tr>
 </table>
+</section>
 
+<section>
 <h3 id="vol-con">VOLUME CONVERSION</h3>
-<table>
+<table class="centre2">
   <tr>
     <th>Cups</th>
     <th>Fluid Ounces</th>
@@ -78,7 +91,7 @@
     <td>6 oz</td>
     <td>12 tbsp</td>
     <td>35 tsp</td>
-    <td>15 m7L</td>
+    <td>15 mL</td>
   </tr>
   <tr>
     <td>1/2 cup</td>
@@ -106,14 +119,17 @@
     <td>1 oz</td>
     <td>2 tbsp</td>
     <td>6 tsp</td>
-    <td>30 m7L</td>
+    <td>30 mL</td>
   </tr>
 </table>
+</section>
 
+
+<section>
  {{!-- Vegan Substitutions --}}
 <h3 id="veg-sub">Vegan Substitutes</h3>
 <h4>Meat</h4>
-<ul>
+<ul style="line-height:180%">
   <li>Jackfruit</li>
   <li>Tofu</li>
   <li>Seitan</li>
@@ -122,9 +138,9 @@
 <h4>Eggs</h4>
 <p>Per egg</p>
 <h5>Leavening Agent</h5>
-<p>Mix 1 1/2 tbsp of vegetable oil, 1 1/2 tbsp of water, and 1 tsp of baking powder </p> 
+<p style="line-height:180%;">Mix 1 1/2 tbsp of vegetable oil, 1 1/2 tbsp of water, and 1 tsp of baking powder </p> 
 <h5>Binding Agent</h5>
-<ul>
+<ul style="line-height:180%">
   <li>1/2 of a medium banana</li>
   <li>1/4 cup of apple sauce</li>
   <li>1 tbsp of flax seeds mixed with 3tbsp of warm water</li>
@@ -133,8 +149,8 @@
 
 <h4>Butter</h4>
 <p>Per 1 cup of butter</p>
-<ul>
-  <li>1 cup of margarin</li>
+<ul style="line-height:180%">
+  <li>1 cup of margarine</li>
   <li>1 cup of coconut butter </li>
   <li>1/2 cup of apples sauce</li>
   <li>3/4 cup of vegetable/olive/coconut oil</li>
@@ -143,7 +159,7 @@
 </ul>
 
 <h4>Milk</h4>
-<ul>
+<ul style="line-height:180%">
   <li>Soy milk</li>
   <li>Oat milk</li>
   <li>Almond milk</li>
@@ -151,6 +167,19 @@
   <li>Rice milk</li>
 </ul>
 
+{{!-- Adding an image to not leave it empty --}}
+ <div class="row"> 
+    <div class="col">
+      <img id="egg"
+        src="https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2012/05/2393d7b46e6a1e4040ae85cc00486a408b09e070.jpeg"
+        alt="banana-egg"
+        style="height: 300px; width: 330px; padding-top:30px;"
+      /></div>
+  </div>
+  
+</section>
+
+<section>
 {{!-- Backing Ingredient swapping --}}
 <h3 id="bake-sub">Baking Substitutes</h3>
 <h4>Eggs</h4>
@@ -158,7 +187,7 @@
 <h5>Leavening Agent</h5>
 <p>Mix 1 1/2 tbsp of vegetable oil, 1 1/2 tbsp of water, and 1 tsp of baking powder </p> 
 <h5>Binding Agent</h5>
-<ul>
+<ul style="line-height: 180%;">
   <li>1/2 of a medium banana</li>
   <li>1/4 cup of apple sauce</li>
   <li>3 1/2 tbsp of gelatin blend</li>
@@ -168,14 +197,14 @@
 
 <h4>Baking Powder</h4>
 <p>Per 1 tbsp</p>
-<ul>
+<ul style="line-height: 180%;">
   <li>1/4 tsp of baking soda, and 1/2 tsp of cream of tartar</li>
   <li>If the recipes already calls for baking soda, substitute with lemon juice </li>
 </ul>
 
 <h4>Butter</h4>
 <p>Per 1 cup of butter</p>
-<ul>
+<ul style="line-height: 180%;">
   <li>1/2 cup of apples sauce</li>
   <li>3/4 cup of vegetable/olive oil</li>
   <li>1/2 cup of plain greek yogurt</li>
@@ -184,7 +213,7 @@
 
 <h4>White Sugar</h4>
 <p>Per 1 cup of sugar</p>
-<ul>
+<ul style="line-height: 180%;">
   <li>3/4 cup of honey</li>
   <li>1 tsp of of Stevia</li>
   <li>3/4 cup of maple syrup</li>
@@ -192,15 +221,28 @@
 
 <h4>Brown Sugar</h4>
 <p>Per 1 cup of brown sugar</p>
-<ul>
+<ul style="line-height: 180%;">
   <li>1 cup of of white sugar</li>
   <li>3/4 cup of honey</li>
   <li>3/4 cup of maple syrup</li>
 </ul>
 
+{{!-- Adding an image to not leave it empty --}}
+ <div class="row">
+    <div class="col">
+      <img id="sub"
+        src="https://www.letseatcake.com/wp-content/uploads/2020/05/Baking-Tools.jpg"
+        alt="substitution"
+        style="height: 300px; width: 360px; padding-right: 40px; padding-top:15px;"
+      /></div>
+  </div>
+
+</section>
+
+<section>
 {{!-- Meat Internal temperatures --}}
 <h3 id="internal-temp">MEAT INTERNAL TEMPERATURES</h3>
-<table>
+<table class="centre3">
 <thead>
   <tr>
     <th></th>
@@ -224,3 +266,5 @@
   </tr>
 </tbody>
 </table>
+</section>
+</div>
