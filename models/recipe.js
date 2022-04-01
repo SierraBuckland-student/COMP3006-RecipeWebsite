@@ -26,7 +26,7 @@ const createSchema = {
     }, 
 
     img: { 
-        type: String
+        type: String, 
     },
 
     cookTime: {

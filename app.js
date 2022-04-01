@@ -6,6 +6,7 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/globals')
 
+// Exporting the router to the app.js file
 var indexRouter = require('./routes/index');
 var recipeRouter = require('./routes/recipes');
 var toolsRouter = require('./routes/tools');
@@ -101,7 +102,7 @@ async (accessToken, refreshToken, profile, done) => {
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//Page Routes
+//Page Routes being initialized
 app.use('/', indexRouter);
 app.use('/recipes', recipeRouter);
 app.use('/tools', toolsRouter);
