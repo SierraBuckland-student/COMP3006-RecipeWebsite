@@ -58,31 +58,31 @@
     </thead>
     {{#each dataset}}
     <tr>
-        <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
-        <td>{{this.author}}</td>
+        <td><a href="/recipes/view/{{this._id}}"><img id="recipe-img" src="uploads/{{this.img}}"></a></td>
+        <td id="to">{{this.title}}</td>
+        <td id="author">{{this.author}}</td>
         {{#ifeq this.totalTime "1"}} 
-            <td>{{this.totalTime}} hour</td>
+            <td id="totTime">{{this.totalTime}} hour</td>
         {{/ifeq}}
         {{#ifnoteq this.totalTime "1"}} 
-            <td>{{this.totalTime}} minutes</td> 
+            <td id="totTime">{{this.totalTime}} minutes</td> 
         {{/ifnoteq}}
-         <td><img src="/uploads/{{this.img}}" style="width: 60px; height: 60px;"></td>
         {{#ifeq this.cookTime "1"}} 
-            <td>{{this.cookTime}} hour</td>
+            <td id="cooTime">{{this.cookTime}} hour</td>
         {{/ifeq}}
         {{#ifnoteq this.cookTime "1"}} 
-            <td>{{this.cookTime}} minutes</td> 
+            <td id="cooTime">{{this.cookTime}} minutes</td> 
         {{/ifnoteq}}
         {{#ifeq this.servings "1"}} 
-            <td>{{this.servings}} serving</td>
+            <td id="serving">{{this.servings}} serving</td>
         {{/ifeq}}
         {{#ifnoteq this.servings "1"}} 
-            <td>{{this.servings}} servings</td> 
+            <td id="serving">{{this.servings}} servings</td> 
         {{/ifnoteq}}
-        <td>{{this.ingredients}}</td>
-        <td>{{this.steps}}</td>
-        <td>{{this.rating}}</td>
-        <td>{{this.mealTime}}, {{this.mealProtein}}, {{this.totalTime}} </td>
+        <td id="ingredients">{{this.ingredients}}</td>
+        <td id="steps">{{this.steps}}</td>
+        <td id="rating">{{this.rating}}</td>
+        <td id="tag">{{this.mealTime}}, {{this.mealProtein}}, {{this.totalTime}} </td>
         {{#if ../user.role}}
             <td>
                 <a href="/recipes/edit/{{this._id}}">Edit</a>
