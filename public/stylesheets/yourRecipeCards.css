@@ -1,0 +1,104 @@
+/* Removing table headings */
+thead, tfoot {
+    display: none;
+}
+
+/* Removing borders from the table */
+table {
+    background: none !important;
+    border: none !important;
+    /* height: 10%; */
+
+}
+
+/* Styling the main portion of the "card" */
+tr {
+    display: inline-block;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 1.5rem;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-shadow: 0 0 10px;
+}
+
+/* This will align the table side by side, like a card */
+td {
+    display: block;
+}
+
+/* Colouring all "cards" */
+tr:nth-child(even) {background-color: #AEC3B0;}
+tr:nth-child(odd) {background-color: #AEC3B0;}
+
+/* Collapsing the boarder throughout the table */
+table, th, td {
+    border-collapse: collapse;
+}
+
+/* Removing all the lines, making the line-height small so the words are closer */
+td{
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    line-height: 0px;
+}
+
+/* Styling the title in the card */
+#tit1 {
+    color: #124559;
+    font-size: 20px;
+}
+
+
+/* Adding text to the total time */
+#timeTot::before {
+    content: "Total Time: ";
+    font-weight: bold;
+}
+
+/* Adding text to tags */
+#tagger::before {
+    content: "Tags: ";
+    font-weight: bold;
+}
+
+/* Styling the links in the card */
+#linkers a {
+    text-decoration: none;
+    padding: 1px;
+    color: #124559;
+    font-size: 14px;
+    
+}
+
+/* Adding a hover effect to the card link */
+#linkers a:hover {
+    background-image: linear-gradient(#AEC3B0, #1482ad);
+  }
+
+/* Removing the author, cook time, servings, steps, 
+ingredients and ratings from the card display  */
+#writer {
+    display: none;
+}
+
+#timeCook {
+    display: none;
+}
+
+#serve {
+    display: none;
+}
+
+#step {
+    display: none;
+}
+
+#ingre {
+    display: none;
+}
+
+#rate {
+    display: none;
+}
