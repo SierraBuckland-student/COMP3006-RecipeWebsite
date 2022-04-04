@@ -1,5 +1,9 @@
 {{!-- Page where users would view recipes --}}
 
+<head>
+    <link rel="stylesheet" href="../../public/stylesheets/yourRecipeCards.css">
+</head>
+
 <h1>{{title}}</h1>
 
 <table>
@@ -20,33 +24,34 @@
     </thead>
     {{#each dataset}}
     <tr>
-        <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
-        <td>{{this.author}}</td>
+        <td><a href="/recipes/view/{{this._id}}"><img id="#user-img" src="/uploads/{{this.img}}" style="margin-top: 2px; width: 200px; height: 200px;"></a></td>
+        <td id="tit1">{{this.title}}</td>
+        <td id="writer">{{this.author}}</td>
         {{#ifeq this.totalTime "1"}} 
-            <td>{{this.totalTime}} hour</td>
+            <td id="timeTot">{{this.totalTime}} hour</td>
         {{/ifeq}}
         {{#ifnoteq this.totalTime "1"}} 
-            <td>{{this.totalTime}} minutes</td> 
+            <td id="timeTot">{{this.totalTime}} minutes</td> 
         {{/ifnoteq}}
-        <td><img src="/uploads/{{this.img}}" style="width: 60px; height: 60px;"></td>
+        
         {{#ifeq this.cookTime "1"}} 
-            <td>{{this.cookTime}} hour</td>
+            <td id="timeCook">{{this.cookTime}} hour</td>
         {{/ifeq}}
         {{#ifnoteq this.cookTime "1"}} 
-            <td>{{this.cookTime}} minutes</td> 
+            <td id="timeCook">{{this.cookTime}} minutes</td> 
         {{/ifnoteq}}
         {{#ifeq this.servings "1"}} 
-            <td>{{this.servings}} serving</td>
+            <td id="serve">{{this.servings}} serving</td>
         {{/ifeq}}
         {{#ifnoteq this.servings "1"}} 
-            <td>{{this.servings}} servings</td> 
+            <td id="serve">{{this.servings}} servings</td> 
         {{/ifnoteq}}
-        <td>{{this.ingredients}}</td>
-        <td>{{this.steps}}</td>
-        <td>{{this.rating}}</td>
-        <td>{{this.mealTime}}, {{this.mealProtein}}, {{this.totalTime}} </td>
+        <td id="ingre">{{this.ingredients}}</td>
+        <td id="step">{{this.steps}}</td>
+        <td id="rate">{{this.rating}}</td>
+        <td id="tagger">{{this.mealTime}}, {{this.mealProtein}}, {{this.totalTime}} </td>
         {{#if ../user}}
-            <td>
+            <td id="linkers">
                 <a href="/recipes/edit/{{this._id}}">Edit</a>
                 <a href="/recipes/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion();">Delete</a>
             </td>
