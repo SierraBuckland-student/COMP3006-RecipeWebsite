@@ -1,0 +1,213 @@
+/* Styling of the entire page */
+body {
+
+    background: #E6E6E6;
+ 
+ }
+
+/* Styling the main header of the page  */
+ h1 {
+    color: #124559;
+    padding: 20px;
+    text-align: left;
+    padding-left: 53px;
+}
+
+ /* Section that contains links */
+ #links {
+
+     width: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+
+ }
+
+
+ #links a {
+    float: left;
+    padding: 12px;
+    
+    text-decoration: none;
+    font-size: 15px;
+
+    color: #124559;
+   
+ }
+
+  #links a:hover {
+    background-image: linear-gradient(#AEC3B0, #1482ad);
+  }
+ 
+ #wrapper {
+     /* Our layout for the main content */
+     display: grid;
+ 
+     grid-template-areas: 
+ 
+      "temp volume"
+      "vegan baking"
+      "meat meat";
+ 
+      grid-template-columns: 40% 60%;
+ }
+ 
+ /* Temperature conversion section */
+ section:nth-of-type(1) {
+     /* border-style: solid;
+     border-color: red; */
+ 
+     grid-area: temp;
+
+     padding-bottom: 5em;
+     
+ }
+
+
+ 
+ /* All tables on the page */
+ table.centre1, table.centre2, section:nth-of-type(5) table{
+ 
+     margin-left: auto; 
+     margin-right: auto;
+ }
+
+
+ /* Temperature conversion table */
+ .centre1 {
+
+    border-collapse: collapse;
+    width: 83%;
+    
+    box-shadow: 12px 12px 10px grey;
+
+    position: relative;
+
+    top: 33px;
+ }
+
+  /* temp conversion, Volume conversion, & meat temperatures header */
+  section:nth-of-type(1) h3,  section:nth-of-type(2) h3, section:nth-of-type(5) h3 {
+ 
+    padding-top: 18px;
+    text-align: center;
+    text-decoration: underline;
+    color: #124559;
+}
+
+/* Styling elements in the temperature conversion table */
+ .centre1 td, .centre1 th, .centre2 td, .centre2 th, .centre3 td, .centre3 th {
+    border: 1px solid #ddd;
+    text-align: center;
+ }
+  
+/* Styling the table headings of the temperature & conversion & meat tables */
+  .centre1 th, .centre2 th, .centre3 th{
+    padding-top: 18px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #124559;
+    color: #E6E6E6;
+  }
+
+  /* Styling every other line in the temperature & volume 
+  conversion table */
+  .centre1 tr:nth-child(even), .centre2 tr:nth-child(even){
+    background-color: #AEC3B0;
+  }
+
+  /* When user hovers their mouse over an element in the temperature and 
+ volume & meat temperature tables it will change to this colour */
+ .centre1 td:hover, .centre2 td:hover, .centre3 td:hover {background-color: #598392;}
+ 
+ 
+ /* Volume conversion section */
+ section:nth-of-type(2) {
+ 
+     /* border-style: solid;
+     border-color: orange; */
+ 
+     grid-area: volume;
+ }
+
+ /* Volume conversion table */
+ .centre2 {
+
+    /* font-family: Arial, Helvetica, sans-serif; */
+    border-collapse: collapse;
+    width: 90%;
+    box-shadow: 12px 12px 10px grey;
+
+    position: relative;
+
+    top: 34px;
+ }
+
+ 
+ /* Vegan substitution section */
+ section:nth-of-type(3) {
+
+     color: #124559;
+ 
+     grid-area: vegan;
+ 
+     padding-left: 50px;
+     padding-right: 16px;
+     padding-top: 15px;
+     /* padding-bottom: 15px; */
+ }
+
+/* Vegan substitution section header*/
+section:nth-of-type(3) h3 {
+    text-decoration: underline;
+}
+
+ 
+ /* Baking substitution section */
+ section:nth-of-type(4) {
+ 
+     grid-area: baking;
+     color: #124559;
+
+     padding-left: 80px;
+     padding-top: 15px;
+
+     
+     /* padding-bottom: 15px; */
+ 
+ }
+
+ /* Positioning substitution image
+ #sub {
+     position: relative;
+     bottom: 4em;
+ } */
+
+  /* Baking substitution section header */
+  section:nth-of-type(4) h3 {
+        text-decoration: underline;
+  }
+ 
+ 
+ /* Meat temperatures section */
+ section:nth-of-type(5) {
+ 
+     /* border-style: solid;
+     border-color: black; */
+ 
+     grid-area: meat;
+ }
+
+
+  /* Meat temperature table */
+  .centre3 {
+
+    border-collapse: collapse;
+    width: 83%;
+    
+    box-shadow: 12px 12px 10px grey;
+
+    position: relative;
+
+    top: 10px;
+ }
