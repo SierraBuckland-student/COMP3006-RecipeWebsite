@@ -4,12 +4,15 @@
 
 <h2>Recipe of the Day</h2>
 {{!-- Copy - pasted the loop so that the random recipe can display accordingly --}}
-<table>
-    {{#each dataset}}
-    <tr>
-        <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
-        <td>{{this.author}}</td>
-    </tr>
-    {{/each}}
-</table>
-</ul>
+<div id = "home_card">
+    <div id = "home_container">
+        {{#each dataset}}
+            <a href="/recipes/view/{{this._id}}"><img id="home_img" src="uploads/{{this.img}}" ></a>
+            <p id="home_recipeDayTitle">{{this.title}}</p>
+            <p>By: {{this.author}}</p> 
+        {{/each}}
+    </div>
+</div>
+
+
+
