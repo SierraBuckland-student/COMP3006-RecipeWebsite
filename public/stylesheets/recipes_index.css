@@ -1,38 +1,103 @@
 /* Stylesheet for when the user views all of the recipes 
 (not when they are logged in) */
 
+/* Removing the table headings */
+thead, tfoot {
+    display: none;
+}
+
+/* Removing borders from the table */
 table {
-    border-collapse: collapse;
-    width: 75%;
+    background: none !important;
+    border: none !important;
+    /* height: 10%; */
 
-    margin-left: auto;
-    margin-right: auto;
-
-    box-shadow: 10px 10px 10px grey;
-
-   
 }
 
-table, td, th {  
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-
-th {
-    background-color: #124559;
-    color: white;
+/* Styling the main portion of the "card" */
+tr {
+    display: inline-block;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 1.5rem;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-shadow: 0 0 10px;
 }
 
-th, td {
-    padding: 15px;
+/* This will align the table side by side, like a card */
+td {
+    display: block;
 }
 
+/* Colouring all "cards" */
 tr:nth-child(even) {background-color: #AEC3B0;}
+tr:nth-child(odd) {background-color: #AEC3B0;}
 
-tr:hover {background-color: #598392;}
 
-
-table a {
-    text-decoration: none;
+/* Colouring the a tag */
+#to {
+    /* text-decoration: none; */
     color: #124559;
+    font-size: 20px;
+} 
+
+/* Styling the image in the cards */
+#recipe-img {
+ margin-top: 2px;
+  width: 200px;
+  height: 200px;
+}
+
+/* Collapsing the boarder throughout the table */
+table, th, td {
+    border-collapse: collapse;
+}
+
+/* Removing all the lines, making the line-height small so the words are closer */
+td{
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    line-height: 0px;
+}
+
+
+/* Adding some text to the total time */
+#totTime::before {
+    content: "Total Time: ";
+    font-weight: bold;
 }  
+
+/* Adding some text for the tags */
+#tag::before {
+    content: "Tags: ";
+    font-weight: bold;
+}
+
+/* Removing the cook time, ingredients, servings, 
+ratings, author and steps from the "cards" */
+#cooTime {
+    display: none;
+} 
+
+#ingredients {
+    display: none;
+}
+
+#serving {
+    display: none;
+}
+
+#rating {
+    display: none;
+}
+
+#author {
+    display: none;
+}
+
+#steps {
+    display: none;
+}
+ 
