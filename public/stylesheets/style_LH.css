@@ -1,6 +1,7 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.homepage-content {
+  padding: 2% 5%;
+  font: 14px;
+  font-family: 'Karla', sans-serif;
   background-color: #e6e6e6;
 }
 

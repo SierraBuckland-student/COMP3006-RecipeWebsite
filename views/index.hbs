@@ -1,18 +1,24 @@
-<h1>{{title}}</h1>
 
-<p>Welcome to the Home page for Group 6's Recipe Website!</p> 
+<div class="homepage-content">
 
-<h2>Recipe of the Day</h2>
-{{!-- Copy - pasted the loop so that the random recipe can display accordingly --}}
-<div id = "home_card">
-    <div id = "home_container">
-        {{#each dataset}}
-            <a href="/recipes/view/{{this._id}}"><img id="home_img" src="uploads/{{this.img}}" ></a>
-            <p id="home_recipeDayTitle">{{this.title}}</p>
-            <p>By: {{this.author}}</p> 
-        {{/each}}
+    <h1>{{title}}</h1>
+
+    <p>Welcome to the Home page for Group 6's Recipe Website!</p> 
+
+    <h2>Recipe of the Day</h2>
+    {{!-- Copy - pasted the loop so that the random recipe can display accordingly --}}
+    <div id = "home_card">
+        <div id = "home_container">
+            {{#each dataset}}
+                <a href="/recipes/view/{{this._id}}"><img id="home_img" src="uploads/{{this.img}}" ></a>
+                <p id="home_recipeDayTitle">{{this.title}}</p>
+                <p>By: {{this.author}}</p> 
+            {{/each}}
+        </div>
     </div>
+    
 </div>
+
 
 
 

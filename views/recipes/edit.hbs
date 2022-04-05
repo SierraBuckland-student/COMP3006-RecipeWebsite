@@ -1,140 +1,149 @@
 {{!-- Put a forum to the add / create recipes in here  --}}
-<h1>
-  Edit a recipe
-</h1>
-<form method="post" enctype="multipart/form-data">
-  <fieldset class="form-group">
-    <label for="author" class="col-2 control-label">
-      Recipe Author:
-    </label>
-    <input
-      name="author"
-      id="author"
-      type="text"
-      maxlength="25"
-      required
-      value="{{recipe.author}}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="title" class="col-2 control-label">
-      Recipe Title: 
-    </label>
-    <input
-      name="title"
-      id="title"
-      type="text"
-      maxlength="25"
-      required
-      value="{{recipe.title}}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="totalTime" class="col-2 control-label">
-      Total Recipe Time:
-    </label>
-     <select name="totalTime" id="totalTime" required>
-      {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
-      {{!-- Use helper instead of hardcoding--}}
-        <option value="">Pick a time</option>
-        {{createOption '20' recipe.totalTime}}
-        {{createOption '30' recipe.totalTime}}
-        {{createOption '45' recipe.totalTime}}
-        {{createOption '1' recipe.totalTime}}
-    </select>
-  </fieldset>
-    <fieldset class="form-group">
-    <label for="img" class="col-2 control-label">Upload Image:</label>
-    <input type="file" name="img" id="img" required/>
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="cookTime" class="col-2 control-label">
-      Cook Time:
-    </label>
-    <select name="cookTime" id="cookTime" required>
-      {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
-      {{!-- Use helper instead of hardcoding--}}
-        <option value="">Pick a time</option>
-        {{createOption '20' recipe.cookTime}}
-        {{createOption '30' recipe.cookTime}}
-        {{createOption '45' recipe.cookTime}}
-        {{createOption '1' recipe.cookTime}}
-    </select>
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="servings" class="col-2 control-label">
-      Servings:
-    </label>
-    <input
-      name="servings"
-      id="servings"
-      type="number"
-      max="48"
-      required
-      value="{{recipe.servings}}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="ingredients" class="col-2 control-label">
-      Ingredients:
-    </label>
-    <input
-      name="ingredients"
-      id="ingredients"
-      required
-      value="{{recipe.ingredients}}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="steps" class="col-2 control-label">
-      Steps:
-    </label>
-    <input
-      name="steps"
-      id="steps"
-      required
-      value="{{recipe.steps}}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="mealProtein" class="col-2 control-label"> Recipe Protein:</label> 
-    <select name="mealProtein" id="mealProtein" >
-        <option value="">Pick a meal protein</option>
-        {{createOption 'beef' recipe.mealProtein}}
-        {{createOption 'chicken' recipe.mealProtein}}
-        {{createOption 'seafood' recipe.mealProtein}}
-        {{createOption 'vegetarian' recipe.mealProtein}}
-        {{createOption 'vegan' recipe.mealProtein}}
-    </select>
-  </fieldset>
- 
-  <fieldset class="form-group">
-    <label for="mealTime" class="col-2 control-label"> Tags:</label> 
-    <select name="mealTime" id="mealTime">
-        <option value="">Pick a meal </option>
-        {{createOption 'breakfast' recipe.mealTime}}
-        {{createOption 'lunch' recipe.mealTime}}
-        {{createOption 'dinner' recipe.mealTime}}
-        {{createOption 'dessert' recipe.mealTime}}
-    </select>
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="rating" class="col-2 control-label">
-      Rating:
-    </label>
-    <input
-      name="rating"
-      id="rating"
-      type="number"
-      min="1"
-      max="5"
-      value="{{recipe.rating}}"
-    />
-  </fieldset>
-    
-  <fieldset class="form-group">
-    <button class="btn btn-info offset-3">
-      Save
-    </button>
-  </fieldset>
-</form>
+<link rel='stylesheet' href='/stylesheets/addAndEditStyle.css' />
+<main class="add-edit-container">
+  <h1>
+    Edit a recipe
+  </h1>
+  <div class="formbody">
+    <div class="card">
+      <form method="post" enctype="multipart/form-data">
+        <div class="add-edit-form">
+          <fieldset class="form-group">
+            <label for="author" class="col-2 control-label">
+              Recipe Author:
+            </label>
+            <input
+              name="author"
+              id="author"
+              type="text"
+              maxlength="25"
+              required
+              value="{{recipe.author}}"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="title" class="col-2 control-label">
+              Recipe Title: 
+            </label>
+            <input
+              name="title"
+              id="title"
+              type="text"
+              maxlength="25"
+              required
+              value="{{recipe.title}}"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="totalTime" class="col-2 control-label">
+              Total Recipe Time:
+            </label>
+            <select name="totalTime" id="totalTime" required>
+              {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
+              {{!-- Use helper instead of hardcoding--}}
+                <option value="">Pick a time</option>
+                {{createOption '20' recipe.totalTime}}
+                {{createOption '30' recipe.totalTime}}
+                {{createOption '45' recipe.totalTime}}
+                {{createOption '1' recipe.totalTime}}
+            </select>
+          </fieldset>
+            <fieldset class="form-group">
+            <label for="img" class="col-2 control-label">Upload Image:</label>
+            <input type="file" name="img" id="img" required/>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="cookTime" class="col-2 control-label">
+              Cook Time:
+            </label>
+            <select name="cookTime" id="cookTime" required>
+              {{!-- Modify this block of code with a helper method (app.js) to add a selected option --}}
+              {{!-- Use helper instead of hardcoding--}}
+                <option value="">Pick a time</option>
+                {{createOption '20' recipe.cookTime}}
+                {{createOption '30' recipe.cookTime}}
+                {{createOption '45' recipe.cookTime}}
+                {{createOption '1' recipe.cookTime}}
+            </select>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="servings" class="col-2 control-label">
+              Servings:
+            </label>
+            <input
+              name="servings"
+              id="servings"
+              type="number"
+              max="48"
+              required
+              value="{{recipe.servings}}"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="ingredients" class="col-2 control-label">
+              Ingredients:
+            </label>
+            <input
+              name="ingredients"
+              id="ingredients"
+              required
+              value="{{recipe.ingredients}}"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="steps" class="col-2 control-label">
+              Steps:
+            </label>
+            <input
+              name="steps"
+              id="steps"
+              required
+              value="{{recipe.steps}}"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="mealProtein" class="col-2 control-label"> Recipe Protein:</label> 
+            <select name="mealProtein" id="mealProtein" >
+                <option value="">Pick a meal protein</option>
+                {{createOption 'beef' recipe.mealProtein}}
+                {{createOption 'chicken' recipe.mealProtein}}
+                {{createOption 'seafood' recipe.mealProtein}}
+                {{createOption 'vegetarian' recipe.mealProtein}}
+                {{createOption 'vegan' recipe.mealProtein}}
+            </select>
+          </fieldset>
+        
+          <fieldset class="form-group">
+            <label for="mealTime" class="col-2 control-label"> Tags:</label> 
+            <select name="mealTime" id="mealTime">
+                <option value="">Pick a meal </option>
+                {{createOption 'breakfast' recipe.mealTime}}
+                {{createOption 'lunch' recipe.mealTime}}
+                {{createOption 'dinner' recipe.mealTime}}
+                {{createOption 'dessert' recipe.mealTime}}
+            </select>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="rating" class="col-2 control-label">
+              Rating:
+            </label>
+            <input
+              name="rating"
+              id="rating"
+              type="number"
+              min="1"
+              max="5"
+              value="{{recipe.rating}}"
+            />
+          </fieldset>
+
+          <div class="add-edit-button-div">
+              <button class="add-edit-button">
+                Save
+              </button>
+          </div> 
+        </div> 
+      </form>
+    </div>
+  </div>
+</main>

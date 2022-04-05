@@ -11,7 +11,6 @@ table {
     background: none !important;
     border: none !important;
     /* height: 10%; */
-
 }
 
 /* Styling the main portion of the "card" */
@@ -55,10 +54,7 @@ table, th, td {
 
 /* Removing all the lines, making the line-height small so the words are closer */
 td{
-    border-top: none;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
+    border: none;
     line-height: 0px;
 }
 

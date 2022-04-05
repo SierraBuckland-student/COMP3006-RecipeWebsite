@@ -1,142 +1,145 @@
 {{!-- Put a forum to the add / create recipes in here  --}}
 <link rel='stylesheet' href='/stylesheets/addAndEditStyle.css' />
-<h1>
-  Add a recipe
-</h1>
-<div class="formbody">
-<div class="card">
+<main class="add-edit-container">
+  <h1>
+    Add a recipe
+  </h1>
+  <div class="formbody">
+    <div class="card">
+      <form method="post" name="myForm" enctype="multipart/form-data">
+        <div class="add-edit-form">
+          <fieldset class="form-group">
+            <label for="author" class="control-label">
+              Recipe Author:
+            </label>
+            <input
+              name="author"
+              id="author"
+              type="text"
+              maxlength="25"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="title" class="control-label">
+              Recipe Title: 
+            </label>
+            <input
+              name="title"
+              id="title"
+              type="text"
+              maxlength="25"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="totalTime" class="control-label">
+              Total Recipe Time:
+            </label>
+            <select name="totalTime" id="totalTime" required>
+                <option value="">Pick a time</option>
+                <option value="20">20 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="1">1+ hour</option>
+            </select>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <label for="img" class="control-label">Upload Image:</label>
+            <input  type="file" name="img" id="img" required />
+          </fieldset>
 
-<form method="post" name="myForm" enctype="multipart/form-data">
-  <fieldset class="form-group">
-    <label for="author" class="control-label">
-      Recipe Author:
-    </label>
-    <input
-      name="author"
-      id="author"
-      type="text"
-      maxlength="25"
-      required
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="title" class="control-label">
-      Recipe Title: 
-    </label>
-    <input
-      name="title"
-      id="title"
-      type="text"
-      maxlength="25"
-      required
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="totalTime" class="control-label">
-      Total Recipe Time:
-    </label>
-    <select name="totalTime" id="totalTime" required>
-        <option value="">Pick a time</option>
-        <option value="20">20 minutes</option>
-        <option value="30">30 minutes</option>
-        <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option>
-    </select>
-  </fieldset>
-  
-  <fieldset class="form-group">
-    <label for="img" class="control-label">Upload Image:</label>
-    <input  type="file" name="img" id="img" required />
-  </fieldset>
+          <fieldset class="form-group">
+            <label for="cookTime" class="control-label">
+              Cook Time:
+            </label>
+            <select name="cookTime" id="cookTime" required>
+                <option value="">Pick a time</option>
+                <option value="20">20 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="1">1+ hour</option>
+            </select>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="servings" class="control-label">
+              Servings:
+            </label>
+            <input
+              name="servings"
+              type="number"
+              max="48"
+              id="servings"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="ingredients" class="control-label">
+              Ingredients:
+            </label>
+            <input
+              name="ingredients"
+              id="ingredients"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="steps" class="control-label">
+              Steps:
+            </label>
+            <input
+              name="steps"
+              id="steps"
+              required
+            />
+          </fieldset>
+        
+          <fieldset class="form-group">
+            <label for="mealProtein" class="col-2 control-label"> Recipe Protein:</label> 
+            <select name="mealProtein" id="mealProtein">
+                <option value="">Pick a meal protein</option>
+                <option value="beef">Beef</option>
+                <option value="chicken">Chicken</option>
+                <option value="seafood">Seafood</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+            </select>
+          </fieldset>
+        
 
-  <fieldset class="form-group">
-    <label for="cookTime" class="control-label">
-      Cook Time:
-    </label>
-    <select name="cookTime" id="cookTime" required>
-        <option value="">Pick a time</option>
-        <option value="20">20 minutes</option>
-        <option value="30">30 minutes</option>
-        <option value="45">45 minutes</option>
-        <option value="1">1+ hour</option>
-    </select>
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="servings" class="control-label">
-      Servings:
-    </label>
-    <input
-      name="servings"
-      type="number"
-      max="48"
-      id="servings"
-      required
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="ingredients" class="control-label">
-      Ingredients:
-    </label>
-    <input
-      name="ingredients"
-      id="ingredients"
-      required
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="steps" class="control-label">
-      Steps:
-    </label>
-    <input
-      name="steps"
-      id="steps"
-      required
-    />
-  </fieldset>
- 
-  <fieldset class="form-group">
-    <label for="mealProtein" class="col-2 control-label"> Recipe Protein:</label> 
-    <select name="mealProtein" id="mealProtein">
-        <option value="">Pick a meal protein</option>
-        <option value="beef">Beef</option>
-        <option value="chicken">Chicken</option>
-        <option value="seafood">Seafood</option>
-        <option value="vegetarian">Vegetarian</option>
-        <option value="vegan">Vegan</option>
-    </select>
-  </fieldset>
- 
+          <fieldset class="form-group">
+            <label for="mealTime" class="control-label"> Recipe Time:</label> 
+            <select name="mealTime" id="mealTime">
+                <option value="">Pick a meal </option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="dessert">Dessert</option>
+            </select>
+          </fieldset>
 
-  <fieldset class="form-group">
-    <label for="mealTime" class="control-label"> Recipe Time:</label> 
-    <select name="mealTime" id="mealTime">
-        <option value="">Pick a meal </option>
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="dinner">Dinner</option>
-        <option value="dessert">Dessert</option>
-    </select>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <label for="rating" class="control-label">
-      Rating:
-    </label>
-    <input
-      name="rating"
-      id="rating"
-      type="number"
-      min="1"
-      max="5"
-      value="{{recipe.rating}}"
-    />
-  </fieldset>
-    
-  <fieldset class="form-group">
-    <button class="btn btn-info offset-3">
-      Add Recipe
-    </button>
-  </fieldset>
-</form>
-</div>
-</div>
+          <fieldset class="form-group">
+            <label for="rating" class="control-label">
+              Rating:
+            </label>
+            <input
+              name="rating"
+              id="rating"
+              type="number"
+              min="1"
+              max="5"
+              value="{{recipe.rating}}"
+            />
+          </fieldset>
+            
+          <div class="add-edit-button-div">
+              <button class="add-edit-button">
+                Add
+              </button>
+          </div>  
+        </div> 
+      </form>
+    </div>
+  </div>
+</main>
