@@ -21,6 +21,10 @@ tr {
     border: 1px solid grey;
     border-radius: 3px;
     box-shadow: 0 0 10px;
+    /* adding width */
+    width: 18%;
+    white-space:nowrap;
+    word-wrap: break-word;
 }
 
 /* This will align the table side by side, like a card */
@@ -42,8 +46,8 @@ tr:nth-child(odd) {background-color: #AEC3B0;}
 
 /* Styling the image in the cards */
 #recipe-img {
- margin-top: 2px;
-  width: 200px;
+  margin-top: 2px;
+  width: 215px;
   height: 200px;
 }
 
