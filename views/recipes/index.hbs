@@ -8,8 +8,8 @@
 
 {{!-- Putting it in a form value with GET so we can call the get router --}}
 <form action="/recipes" method="GET" class="searchbar">
-    <input name="search" type="text" placeholder="Search Recipes">   
-    <input type="submit">
+    <input name="search" type="text" placeholder="Search Recipes" id="search">   
+    <input type="submit" id="sub">
 </form>
 
 <form action="/recipes" method="GET" class="searchbar">
@@ -36,7 +36,7 @@
         <option value="45">45 minutes</option>
         <option value="1">1+ hour</option>
     </select>
-    <input type="submit">
+    <input type="submit" id="submit">
 </form>
 
 
