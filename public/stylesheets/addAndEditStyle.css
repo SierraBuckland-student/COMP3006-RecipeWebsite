@@ -1,19 +1,23 @@
 h1{
     padding-left: 20.5rem;
-    padding-top: 1rem;
+    padding: 2rem 0;
     color: #01161E;
+    font-size: 3rem;
+    margin: 0px;
+    font-family: "EB Garamond", serif;
+    text-align: center;
 }
 .formbody{
-    padding-left: 20rem;
-    padding-right: 20rem;
-    padding-bottom: 1.5rem;
+    padding: 0 20rem 1.5rem 20rem;
     color: #01161E;
     font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 .form-group{
     display: flex;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 1rem;
+    border: 0;
 }
 .card {
     /* Add shadows to create the "card" effect */
@@ -21,19 +25,39 @@ h1{
     transition: 0.3s;
 }
 input{
+<<<<<<< HEAD
     width: 20rem;
+=======
+    display: flex;
+    width: 60%;
+>>>>>>> 6cfba3c667e7987ae5b208ea61517fd93fa4913b
     height: 1.5rem;
     font-size: 20px;
 }
 select{
-    
     font-size: large;
 }
 label{
     display: flex;
     justify-content: flex-start;
-    padding-left: 15rem;
 }
-.formlabels{
-    padding-left: 15rem;
+
+.control-label {
+    padding-right: 2%;
+    width: 30%;
+}
+
+.add-edit-form {
+    background-color: #ffffff;
+    padding: 40px;
+}
+
+.add-edit-button {
+    font-family: "Karla", sans-serif;
+    font-size: 1.2rem;
+}
+
+.add-edit-button-div {
+    text-align: center;
+    padding-top: 5%;
 }
