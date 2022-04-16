@@ -25,8 +25,12 @@ h1{
     transition: 0.3s;
 }
 input{
+<<<<<<< HEAD
+    width: 20rem;
+=======
     display: flex;
     width: 60%;
+>>>>>>> 6cfba3c667e7987ae5b208ea61517fd93fa4913b
     height: 1.5rem;
     font-size: 20px;
 }
