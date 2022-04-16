@@ -1,24 +1,23 @@
+<h1>{{title}}</h1>
 
-<div class="homepage-content">
+<p>Welcome to the Home page for Group 6's Recipe Website!</p> 
 
-    <h1>{{title}}</h1>
+<h2>Recipe of the Day</h2>
+{{!-- Copy - pasted the loop so that the random recipe can display accordingly --}}
+<table>
+    {{#each dataset}}
+    <tr>
+        <td><a href="/recipes/view/{{this._id}}">{{this.title}}</a></td>
+        <td>{{this.author}}</td>
+    </tr>
+    {{/each}}
+</table>
 
-    <p>Welcome to the Home page for Group 6's Recipe Website!</p> 
-
-    <h2>Recipe of the Day</h2>
-    {{!-- Copy - pasted the loop so that the random recipe can display accordingly --}}
-    <div id = "home_card">
-        <div id = "home_container">
-            {{#each dataset}}
-                <a href="/recipes/view/{{this._id}}"><img id="home_img" src="uploads/{{this.img}}" ></a>
-                <p id="home_recipeDayTitle">{{this.title}}</p>
-                <p>By: {{this.author}}</p> 
-            {{/each}}
-        </div>
-    </div>
-    
-</div>
-
-
-
-
+<h3>Since Phase 1 Functionality</h3>
+<ul>
+  <li>Login and Registering an Account</li>
+  <li>Profile Creations</li>
+  <li>Authentication</li>
+  <li>Search/Filtering</li>
+  <li>And More!</li>
+</ul>

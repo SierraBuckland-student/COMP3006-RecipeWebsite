@@ -1,155 +1,38 @@
 /* Stylesheet for when the user views all of the recipes 
 (not when they are logged in) */
 
-/* Removing the table headings */
-thead, tfoot {
-    display: none;
-}
-
-/* Removing borders from the table */
 table {
-    background: none !important;
-    border: none !important;
-    /* height: 10%; */
-}
-
-/* Styling the main portion of the "card" */
-tr {
-    display: inline-block;
-    padding: 1rem 0.5rem 1rem 0.5rem;
-    margin: 1.5rem;
-    border: 1px solid grey;
-    border-radius: 3px;
-    box-shadow: 0 0 10px;
-    /* adding width */
-    width: 18%;
-    white-space:nowrap;
-    word-wrap: break-word;
-}
-
-/* This will align the table side by side, like a card */
-td {
-    display: block;
-}
-
-/* Colouring all "cards" */
-tr:nth-child(even) {background-color: #AEC3B0;}
-tr:nth-child(odd) {background-color: #AEC3B0;}
-
-
-/* Colouring the a tag */
-#to {
-    /* text-decoration: none; */
-    color: #124559;
-    font-size: 20px;
-} 
-
-/* Styling the image in the cards */
-#recipe-img {
-  margin-top: 2px;
-  width: 215px;
-  height: 200px;
-}
-
-/* Collapsing the boarder throughout the table */
-table, th, td {
     border-collapse: collapse;
+    width: 75%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    box-shadow: 10px 10px 10px grey;
+
+   
 }
 
-/* Removing all the lines, making the line-height small so the words are closer */
-td{
-    border: none;
-    line-height: 0px;
-}
-
-/* styling the select bars */
-select {
-    color:#124559;
-    background-color: #AEC3B0;
-    border-radius: 5px;
-}
-
-/* Styling the submit buttons and select bars together */
-input#submit, input#sub, select {
-
-    color:#01161E;
-    background-color: #598392;
-    border-radius: 5px;
-    outline-color: #124559;
-    padding: 6px;
-    margin-left: 8px;
-}
-
-/* Styling the submit button beside the searchbar */
-input#sub {
-    margin-bottom: 13px;
-}
-
-/* Adding a hover effect to the submit bars, and submit button */
-input#submit:hover, input#sub:hover, select:hover {
-    background-image: linear-gradient(#598392, #4ea3b0);
-}
-
-/* Styling the submit button beside the select bars */
-input#search {
-    background-color: #c0d7c2;
-    color: #01161E;
-    margin-left: 9px;
-    outline-color: #124559;
-}
-
-/* Colouring the placeholder text for all browsers */
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #616060;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: #616060;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
-    color: #616060;
-  }
-  :-moz-placeholder { /* Firefox 18- */
-    color: #616060;
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: center;
   }
 
+th {
+    background-color: #124559;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+}
+
+tr:nth-child(even) {background-color: #AEC3B0;}
+
+tr:hover {background-color: #598392;}
 
 
-/* Adding some text to the total time */
-#totTime::before {
-    content: "Total Time: ";
-    font-weight: bold;
+table a {
+    text-decoration: none;
+    color: #124559;
 }  
-
-/* Adding some text for the tags */
-#tag::before {
-    content: "Tags: ";
-    font-weight: bold;
-}
-
-/* Removing the cook time, ingredients, servings, 
-ratings, author and steps from the "cards" */
-#cooTime {
-    display: none;
-} 
-
-#ingredients {
-    display: none;
-}
-
-#serving {
-    display: none;
-}
-
-#rating {
-    display: none;
-}
-
-#author {
-    display: none;
-}
-
-#steps {
-    display: none;
-}
- 
- 

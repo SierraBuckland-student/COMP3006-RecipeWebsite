@@ -35,8 +35,7 @@
 /* register, login, settings button */
 .register-button,
 .login-button,
-.save-button,
-.add-edit-button {
+.save-button {
   width: 220px;
   height: 50px;
   border: none;
@@ -51,8 +50,7 @@
 
 .register-button:before,
 .login-button:before,
-.save-button:before,
-.add-edit-button:before {
+.save-button:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -84,29 +82,25 @@
 
 .register-button:active,
 .login-button:active,
-.save-button:active,
-.add-edit-button:active {
+.save-button:active {
   color: rgb(255, 251, 251);
 }
 
 .register-button:active:after,
 .login-button:active:after,
-.save-button:active:after,
-.add-edit-button:active:after {
+.save-button:active:after {
   background: transparent;
 }
 
 .register-button:hover:before,
 .login-button:hover:before,
-.save-button:hover:before,
-.add-edit-button:hover:before {
+.save-button:hover:before {
   opacity: 1;
 }
 
 .register-button:after,
 .login-button:after,
-.save-button:after,
-.add-edit-button:after {
+.save-button:after {
   z-index: -1;
   content: "";
   position: absolute;
