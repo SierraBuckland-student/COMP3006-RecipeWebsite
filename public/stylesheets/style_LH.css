@@ -5,6 +5,11 @@
   background-color: #e6e6e6;
 }
 
+.recipe-view-container{
+  padding-top: 1rem;
+  padding-left: 3%;
+}
+
 #view_title,
 #about_title,
 #contact_title {
